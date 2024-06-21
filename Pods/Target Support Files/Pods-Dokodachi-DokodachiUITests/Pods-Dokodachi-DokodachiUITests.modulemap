@@ -1,0 +1,6 @@
+framework module Pods_Dokodachi_DokodachiUITests {
+  umbrella header "Pods-Dokodachi-DokodachiUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

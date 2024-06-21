@@ -1,0 +1,767 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9FD51F8B2C25724E00A02AEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD51F8A2C25724E00A02AEE /* AppDelegate.swift */; };
+		9FD51F8D2C25724E00A02AEE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD51F8C2C25724E00A02AEE /* SceneDelegate.swift */; };
+		9FD51F8F2C25724E00A02AEE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD51F8E2C25724E00A02AEE /* ViewController.swift */; };
+		9FD51F922C25724E00A02AEE /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 9FD51F912C25724E00A02AEE /* Base */; };
+		9FD51F942C25724F00A02AEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FD51F932C25724F00A02AEE /* Assets.xcassets */; };
+		9FD51F972C25724F00A02AEE /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 9FD51F962C25724F00A02AEE /* Base */; };
+		9FD51FA22C25724F00A02AEE /* DokodachiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD51FA12C25724F00A02AEE /* DokodachiTests.swift */; };
+		9FD51FAC2C25724F00A02AEE /* DokodachiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD51FAB2C25724F00A02AEE /* DokodachiUITests.swift */; };
+		9FD51FAE2C25724F00A02AEE /* DokodachiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD51FAD2C25724F00A02AEE /* DokodachiUITestsLaunchTests.swift */; };
+		B7788597EDCEE605C0F53495 /* Pods_Dokodachi_DokodachiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FB2E77BF5B719EA3D3FCFC4 /* Pods_Dokodachi_DokodachiUITests.framework */; };
+		E2AE7F9BAD93148496EC000C /* Pods_Dokodachi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADE9B7809BC278CB158E85A8 /* Pods_Dokodachi.framework */; };
+		EAB2D2C445C410D39B18B150 /* Pods_DokodachiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D422CD5A06A18056642D753A /* Pods_DokodachiTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9FD51F9E2C25724F00A02AEE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9FD51F7F2C25724E00A02AEE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9FD51F862C25724E00A02AEE;
+			remoteInfo = Dokodachi;
+		};
+		9FD51FA82C25724F00A02AEE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9FD51F7F2C25724E00A02AEE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9FD51F862C25724E00A02AEE;
+			remoteInfo = Dokodachi;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		16D8858CCC382BB72C6C7F89 /* Pods-DokodachiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DokodachiTests.release.xcconfig"; path = "Target Support Files/Pods-DokodachiTests/Pods-DokodachiTests.release.xcconfig"; sourceTree = "<group>"; };
+		604F1778DD006B9A7D6D62F5 /* Pods-Dokodachi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dokodachi.debug.xcconfig"; path = "Target Support Files/Pods-Dokodachi/Pods-Dokodachi.debug.xcconfig"; sourceTree = "<group>"; };
+		735D0742097C77A97FD09F84 /* Pods-DokodachiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DokodachiTests.debug.xcconfig"; path = "Target Support Files/Pods-DokodachiTests/Pods-DokodachiTests.debug.xcconfig"; sourceTree = "<group>"; };
+		86B9DCBCAFE221DCD3C28A78 /* Pods-Dokodachi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dokodachi.release.xcconfig"; path = "Target Support Files/Pods-Dokodachi/Pods-Dokodachi.release.xcconfig"; sourceTree = "<group>"; };
+		9FB2E77BF5B719EA3D3FCFC4 /* Pods_Dokodachi_DokodachiUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dokodachi_DokodachiUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FD51F872C25724E00A02AEE /* Dokodachi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dokodachi.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FD51F8A2C25724E00A02AEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9FD51F8C2C25724E00A02AEE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		9FD51F8E2C25724E00A02AEE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9FD51F912C25724E00A02AEE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9FD51F932C25724F00A02AEE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9FD51F962C25724F00A02AEE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9FD51F982C25724F00A02AEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9FD51F9D2C25724F00A02AEE /* DokodachiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DokodachiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FD51FA12C25724F00A02AEE /* DokodachiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DokodachiTests.swift; sourceTree = "<group>"; };
+		9FD51FA72C25724F00A02AEE /* DokodachiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DokodachiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FD51FAB2C25724F00A02AEE /* DokodachiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DokodachiUITests.swift; sourceTree = "<group>"; };
+		9FD51FAD2C25724F00A02AEE /* DokodachiUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DokodachiUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		ADE9B7809BC278CB158E85A8 /* Pods_Dokodachi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dokodachi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2F2101370D953F07275994A /* Pods-Dokodachi-DokodachiUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dokodachi-DokodachiUITests.debug.xcconfig"; path = "Target Support Files/Pods-Dokodachi-DokodachiUITests/Pods-Dokodachi-DokodachiUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		B6DE6F5508793ED3CFB1CB26 /* Pods-Dokodachi-DokodachiUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dokodachi-DokodachiUITests.release.xcconfig"; path = "Target Support Files/Pods-Dokodachi-DokodachiUITests/Pods-Dokodachi-DokodachiUITests.release.xcconfig"; sourceTree = "<group>"; };
+		D422CD5A06A18056642D753A /* Pods_DokodachiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DokodachiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9FD51F842C25724E00A02AEE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E2AE7F9BAD93148496EC000C /* Pods_Dokodachi.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FD51F9A2C25724F00A02AEE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAB2D2C445C410D39B18B150 /* Pods_DokodachiTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FD51FA42C25724F00A02AEE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7788597EDCEE605C0F53495 /* Pods_Dokodachi_DokodachiUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1CC015C0317E4A2A427554E4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ADE9B7809BC278CB158E85A8 /* Pods_Dokodachi.framework */,
+				9FB2E77BF5B719EA3D3FCFC4 /* Pods_Dokodachi_DokodachiUITests.framework */,
+				D422CD5A06A18056642D753A /* Pods_DokodachiTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5B07315E04A7482CC6FC56C0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				604F1778DD006B9A7D6D62F5 /* Pods-Dokodachi.debug.xcconfig */,
+				86B9DCBCAFE221DCD3C28A78 /* Pods-Dokodachi.release.xcconfig */,
+				B2F2101370D953F07275994A /* Pods-Dokodachi-DokodachiUITests.debug.xcconfig */,
+				B6DE6F5508793ED3CFB1CB26 /* Pods-Dokodachi-DokodachiUITests.release.xcconfig */,
+				735D0742097C77A97FD09F84 /* Pods-DokodachiTests.debug.xcconfig */,
+				16D8858CCC382BB72C6C7F89 /* Pods-DokodachiTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		9FD51F7E2C25724E00A02AEE = {
+			isa = PBXGroup;
+			children = (
+				9FD51F892C25724E00A02AEE /* Dokodachi */,
+				9FD51FA02C25724F00A02AEE /* DokodachiTests */,
+				9FD51FAA2C25724F00A02AEE /* DokodachiUITests */,
+				9FD51F882C25724E00A02AEE /* Products */,
+				5B07315E04A7482CC6FC56C0 /* Pods */,
+				1CC015C0317E4A2A427554E4 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		9FD51F882C25724E00A02AEE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9FD51F872C25724E00A02AEE /* Dokodachi.app */,
+				9FD51F9D2C25724F00A02AEE /* DokodachiTests.xctest */,
+				9FD51FA72C25724F00A02AEE /* DokodachiUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9FD51F892C25724E00A02AEE /* Dokodachi */ = {
+			isa = PBXGroup;
+			children = (
+				9FD51F8A2C25724E00A02AEE /* AppDelegate.swift */,
+				9FD51F8C2C25724E00A02AEE /* SceneDelegate.swift */,
+				9FD51F8E2C25724E00A02AEE /* ViewController.swift */,
+				9FD51F902C25724E00A02AEE /* Main.storyboard */,
+				9FD51F932C25724F00A02AEE /* Assets.xcassets */,
+				9FD51F952C25724F00A02AEE /* LaunchScreen.storyboard */,
+				9FD51F982C25724F00A02AEE /* Info.plist */,
+			);
+			path = Dokodachi;
+			sourceTree = "<group>";
+		};
+		9FD51FA02C25724F00A02AEE /* DokodachiTests */ = {
+			isa = PBXGroup;
+			children = (
+				9FD51FA12C25724F00A02AEE /* DokodachiTests.swift */,
+			);
+			path = DokodachiTests;
+			sourceTree = "<group>";
+		};
+		9FD51FAA2C25724F00A02AEE /* DokodachiUITests */ = {
+			isa = PBXGroup;
+			children = (
+				9FD51FAB2C25724F00A02AEE /* DokodachiUITests.swift */,
+				9FD51FAD2C25724F00A02AEE /* DokodachiUITestsLaunchTests.swift */,
+			);
+			path = DokodachiUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9FD51F862C25724E00A02AEE /* Dokodachi */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9FD51FB12C25724F00A02AEE /* Build configuration list for PBXNativeTarget "Dokodachi" */;
+			buildPhases = (
+				F95C3067ED0EA9109D9822BE /* [CP] Check Pods Manifest.lock */,
+				9FD51F832C25724E00A02AEE /* Sources */,
+				9FD51F842C25724E00A02AEE /* Frameworks */,
+				9FD51F852C25724E00A02AEE /* Resources */,
+				1F3D8837CE3BBA594DA65CD5 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Dokodachi;
+			productName = Dokodachi;
+			productReference = 9FD51F872C25724E00A02AEE /* Dokodachi.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9FD51F9C2C25724F00A02AEE /* DokodachiTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9FD51FB42C25724F00A02AEE /* Build configuration list for PBXNativeTarget "DokodachiTests" */;
+			buildPhases = (
+				B5DC33E59BD30EF5EF540FD3 /* [CP] Check Pods Manifest.lock */,
+				9FD51F992C25724F00A02AEE /* Sources */,
+				9FD51F9A2C25724F00A02AEE /* Frameworks */,
+				9FD51F9B2C25724F00A02AEE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9FD51F9F2C25724F00A02AEE /* PBXTargetDependency */,
+			);
+			name = DokodachiTests;
+			productName = DokodachiTests;
+			productReference = 9FD51F9D2C25724F00A02AEE /* DokodachiTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		9FD51FA62C25724F00A02AEE /* DokodachiUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9FD51FB72C25724F00A02AEE /* Build configuration list for PBXNativeTarget "DokodachiUITests" */;
+			buildPhases = (
+				009DC3E1303683051B67C327 /* [CP] Check Pods Manifest.lock */,
+				9FD51FA32C25724F00A02AEE /* Sources */,
+				9FD51FA42C25724F00A02AEE /* Frameworks */,
+				9FD51FA52C25724F00A02AEE /* Resources */,
+				D06969EAC8090E12B35C25F8 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9FD51FA92C25724F00A02AEE /* PBXTargetDependency */,
+			);
+			name = DokodachiUITests;
+			productName = DokodachiUITests;
+			productReference = 9FD51FA72C25724F00A02AEE /* DokodachiUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9FD51F7F2C25724E00A02AEE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					9FD51F862C25724E00A02AEE = {
+						CreatedOnToolsVersion = 15.4;
+					};
+					9FD51F9C2C25724F00A02AEE = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 9FD51F862C25724E00A02AEE;
+					};
+					9FD51FA62C25724F00A02AEE = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 9FD51F862C25724E00A02AEE;
+					};
+				};
+			};
+			buildConfigurationList = 9FD51F822C25724E00A02AEE /* Build configuration list for PBXProject "Dokodachi" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9FD51F7E2C25724E00A02AEE;
+			productRefGroup = 9FD51F882C25724E00A02AEE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9FD51F862C25724E00A02AEE /* Dokodachi */,
+				9FD51F9C2C25724F00A02AEE /* DokodachiTests */,
+				9FD51FA62C25724F00A02AEE /* DokodachiUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9FD51F852C25724E00A02AEE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9FD51F942C25724F00A02AEE /* Assets.xcassets in Resources */,
+				9FD51F972C25724F00A02AEE /* Base in Resources */,
+				9FD51F922C25724E00A02AEE /* Base in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FD51F9B2C25724F00A02AEE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FD51FA52C25724F00A02AEE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		009DC3E1303683051B67C327 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Dokodachi-DokodachiUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1F3D8837CE3BBA594DA65CD5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Dokodachi/Pods-Dokodachi-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Dokodachi/Pods-Dokodachi-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Dokodachi/Pods-Dokodachi-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B5DC33E59BD30EF5EF540FD3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DokodachiTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D06969EAC8090E12B35C25F8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Dokodachi-DokodachiUITests/Pods-Dokodachi-DokodachiUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Dokodachi-DokodachiUITests/Pods-Dokodachi-DokodachiUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Dokodachi-DokodachiUITests/Pods-Dokodachi-DokodachiUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F95C3067ED0EA9109D9822BE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Dokodachi-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9FD51F832C25724E00A02AEE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9FD51F8F2C25724E00A02AEE /* ViewController.swift in Sources */,
+				9FD51F8B2C25724E00A02AEE /* AppDelegate.swift in Sources */,
+				9FD51F8D2C25724E00A02AEE /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FD51F992C25724F00A02AEE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9FD51FA22C25724F00A02AEE /* DokodachiTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FD51FA32C25724F00A02AEE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9FD51FAC2C25724F00A02AEE /* DokodachiUITests.swift in Sources */,
+				9FD51FAE2C25724F00A02AEE /* DokodachiUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9FD51F9F2C25724F00A02AEE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9FD51F862C25724E00A02AEE /* Dokodachi */;
+			targetProxy = 9FD51F9E2C25724F00A02AEE /* PBXContainerItemProxy */;
+		};
+		9FD51FA92C25724F00A02AEE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9FD51F862C25724E00A02AEE /* Dokodachi */;
+			targetProxy = 9FD51FA82C25724F00A02AEE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9FD51F902C25724E00A02AEE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9FD51F912C25724E00A02AEE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9FD51F952C25724F00A02AEE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9FD51F962C25724F00A02AEE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9FD51FAF2C25724F00A02AEE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9FD51FB02C25724F00A02AEE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9FD51FB22C25724F00A02AEE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 604F1778DD006B9A7D6D62F5 /* Pods-Dokodachi.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7P5U4N4C5Z;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Dokodachi/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.gwanson.Dokodachi;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9FD51FB32C25724F00A02AEE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 86B9DCBCAFE221DCD3C28A78 /* Pods-Dokodachi.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7P5U4N4C5Z;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Dokodachi/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.gwanson.Dokodachi;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		9FD51FB52C25724F00A02AEE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 735D0742097C77A97FD09F84 /* Pods-DokodachiTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7P5U4N4C5Z;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.gwanson.DokodachiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dokodachi.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Dokodachi";
+			};
+			name = Debug;
+		};
+		9FD51FB62C25724F00A02AEE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 16D8858CCC382BB72C6C7F89 /* Pods-DokodachiTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7P5U4N4C5Z;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.gwanson.DokodachiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dokodachi.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Dokodachi";
+			};
+			name = Release;
+		};
+		9FD51FB82C25724F00A02AEE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B2F2101370D953F07275994A /* Pods-Dokodachi-DokodachiUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7P5U4N4C5Z;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.gwanson.DokodachiUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Dokodachi;
+			};
+			name = Debug;
+		};
+		9FD51FB92C25724F00A02AEE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B6DE6F5508793ED3CFB1CB26 /* Pods-Dokodachi-DokodachiUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7P5U4N4C5Z;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.gwanson.DokodachiUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Dokodachi;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9FD51F822C25724E00A02AEE /* Build configuration list for PBXProject "Dokodachi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9FD51FAF2C25724F00A02AEE /* Debug */,
+				9FD51FB02C25724F00A02AEE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9FD51FB12C25724F00A02AEE /* Build configuration list for PBXNativeTarget "Dokodachi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9FD51FB22C25724F00A02AEE /* Debug */,
+				9FD51FB32C25724F00A02AEE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9FD51FB42C25724F00A02AEE /* Build configuration list for PBXNativeTarget "DokodachiTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9FD51FB52C25724F00A02AEE /* Debug */,
+				9FD51FB62C25724F00A02AEE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9FD51FB72C25724F00A02AEE /* Build configuration list for PBXNativeTarget "DokodachiUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9FD51FB82C25724F00A02AEE /* Debug */,
+				9FD51FB92C25724F00A02AEE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9FD51F7F2C25724E00A02AEE /* Project object */;
+}
