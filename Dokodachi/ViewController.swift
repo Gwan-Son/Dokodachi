@@ -13,6 +13,11 @@ class ViewController: UIViewController {
     
     var disposeBag = DisposeBag()
     
+    let idInputText: BehaviorSubject<String> = BehaviorSubject(value: "")
+    let idValid: BehaviorSubject<Bool> = BehaviorSubject(value: false)
+    let pwInputText: BehaviorSubject<String> = BehaviorSubject(value: "")
+    let pwValid: BehaviorSubject<Bool> = BehaviorSubject(value: false)
+    
     var idField: UITextField!
     var pwField: UITextField!
     var loginButton: UIButton!
@@ -42,7 +47,9 @@ class ViewController: UIViewController {
         
         // loginButton
         loginButton = UIButton()
-        loginButton.setTitle("로그인", for: .normal)
+        loginButton.setTitle("Login", for: .normal)
+        loginButton.setTitle("Fill the Fields", for: .disabled)
+        loginButton.isEnabled = false
         loginButton.layer.cornerRadius = 10
         loginButton.backgroundColor = .tintColor
         loginButton.translatesAutoresizingMaskIntoConstraints = false
@@ -84,24 +91,55 @@ class ViewController: UIViewController {
             pwValidView.centerYAnchor.constraint(equalTo: pwField.centerYAnchor)
             
         ])
-        bindUI()
+        bindInput()
+        bindOutput()
     }
     
-    private func bindUI() {
-        idField.rx.text
-            .subscribe(onNext: { s in
-                print(s)
+    private func bindInput() {
+        // input
+        idField.rx.text.orEmpty
+            .bind(to: idInputText)
+            .disposed(by: disposeBag)
+        
+        idInputText
+            .map(checkEmailValid)
+            .bind(to: idValid)
+            .disposed(by: disposeBag)
+        
+        pwField.rx.text.orEmpty
+            .bind(to: pwInputText)
+            .disposed(by: disposeBag)
+        
+        pwInputText
+            .map(checkPasswordValid)
+            .bind(to: pwValid)
+            .disposed(by: disposeBag)
+    }
+    
+    private func bindOutput() {
+        // output
+        idValid.subscribe(onNext: {b in self.idValidView.isHidden = b})
+            .disposed(by: disposeBag)
+        
+        pwValid.subscribe(onNext: { b in self.pwValidView.isHidden = b})
+            .disposed(by: disposeBag)
+        
+        Observable.combineLatest(idValid, pwValid, resultSelector: { $0 && $1})
+            .subscribe(onNext: { b in
+                self.loginButton.isEnabled = b
             })
             .disposed(by: disposeBag)
     }
     
+    
     private func checkEmailValid(_ email: String) -> Bool {
-            return email.contains("@") && email.contains(".")
-        }
-
-        private func checkPasswordValid(_ password: String) -> Bool {
-            return password.count > 5
-        }
+        return email.contains("@") && email.contains(".")
+    }
+    
+    private func checkPasswordValid(_ password: String) -> Bool {
+        return password.count > 5
+    }
+    
+    
     
 }
-
