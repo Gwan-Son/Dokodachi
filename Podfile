@@ -6,6 +6,7 @@ target 'Dokodachi' do
   use_frameworks!
   pod 'RxSwift', '6.7.1'
   pod 'RxCocoa', '6.7.1'
+  pod 'Socket.IO-Client-Swift', '~> 15.2.0'
 
   # Pods for Dokodachi
 

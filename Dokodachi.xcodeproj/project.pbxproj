@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F302AD72C33F422000A2A7B /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F302AD62C33F422000A2A7B /* SocketIOManager.swift */; };
+		9F302AD92C3401E2000A2A7B /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F302AD82C3401E2000A2A7B /* ChatViewModel.swift */; };
 		9FD51F8B2C25724E00A02AEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD51F8A2C25724E00A02AEE /* AppDelegate.swift */; };
 		9FD51F8D2C25724E00A02AEE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD51F8C2C25724E00A02AEE /* SceneDelegate.swift */; };
 		9FD51F8F2C25724E00A02AEE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD51F8E2C25724E00A02AEE /* ViewController.swift */; };
@@ -43,6 +45,8 @@
 		604F1778DD006B9A7D6D62F5 /* Pods-Dokodachi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dokodachi.debug.xcconfig"; path = "Target Support Files/Pods-Dokodachi/Pods-Dokodachi.debug.xcconfig"; sourceTree = "<group>"; };
 		735D0742097C77A97FD09F84 /* Pods-DokodachiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DokodachiTests.debug.xcconfig"; path = "Target Support Files/Pods-DokodachiTests/Pods-DokodachiTests.debug.xcconfig"; sourceTree = "<group>"; };
 		86B9DCBCAFE221DCD3C28A78 /* Pods-Dokodachi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dokodachi.release.xcconfig"; path = "Target Support Files/Pods-Dokodachi/Pods-Dokodachi.release.xcconfig"; sourceTree = "<group>"; };
+		9F302AD62C33F422000A2A7B /* SocketIOManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
+		9F302AD82C3401E2000A2A7B /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		9FB2E77BF5B719EA3D3FCFC4 /* Pods_Dokodachi_DokodachiUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dokodachi_DokodachiUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FD51F872C25724E00A02AEE /* Dokodachi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dokodachi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FD51F8A2C25724E00A02AEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -146,6 +150,8 @@
 				9FD51F932C25724F00A02AEE /* Assets.xcassets */,
 				9FD51F952C25724F00A02AEE /* LaunchScreen.storyboard */,
 				9FD51F982C25724F00A02AEE /* Info.plist */,
+				9F302AD62C33F422000A2A7B /* SocketIOManager.swift */,
+				9F302AD82C3401E2000A2A7B /* ChatViewModel.swift */,
 			);
 			path = Dokodachi;
 			sourceTree = "<group>";
@@ -406,8 +412,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F302AD72C33F422000A2A7B /* SocketIOManager.swift in Sources */,
 				9FD51F8F2C25724E00A02AEE /* ViewController.swift in Sources */,
 				9FD51F8B2C25724E00A02AEE /* AppDelegate.swift in Sources */,
+				9F302AD92C3401E2000A2A7B /* ChatViewModel.swift in Sources */,
 				9FD51F8D2C25724E00A02AEE /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
