@@ -32,6 +32,8 @@ class ViewController: UIViewController {
     private func setupUI() {
         view.backgroundColor = .white
         
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        
         messageTextField.borderStyle = .roundedRect
         messageTextField.placeholder = "Enter message"
         
@@ -67,6 +69,10 @@ class ViewController: UIViewController {
     private func setupBindings() {
         sendButton.rx.tap
             .withLatestFrom(messageTextField.rx.text.orEmpty)
+            .filter { !$0.isEmpty }
+            .do(onNext: { [weak self] _ in
+                self?.messageTextField.text = ""
+            })
             .bind(to: viewModel.messageInput)
             .disposed(by: disposeBag)
         
