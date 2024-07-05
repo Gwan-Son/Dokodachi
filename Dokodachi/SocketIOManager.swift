@@ -11,17 +11,18 @@ import SocketIO
 class SocketIOManager {
     static let shared = SocketIOManager()
     
-    private var manager: SocketManager
+    private var manager: SocketManager = SocketManager(socketURL: URL(string: "http://localhost:3000")!, config: [.log(true), .compress])
     private var socket: SocketIOClient
     
     private init() {
-        self.manager = SocketManager(socketURL: URL(string: "http://localhost:3000")!, config: [.log(true), .compress])
+//        self.manager = SocketManager(socketURL: URL(string: "http://localhost:3000")!, config: [.log(true), .compress])
         self.socket = manager.defaultSocket
         setupSocketEvents()
     }
     
     func connect() {
         socket.connect()
+        print("소켓 연결")
     }
     
     func disconnect() {

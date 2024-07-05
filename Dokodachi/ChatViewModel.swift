@@ -16,24 +16,24 @@ class ChatViewModel {
     let messageInput = PublishSubject<String>()
     
     // Outputs
-    let messageOutput: Observable<[String]>
+    let messagesOutput = BehaviorRelay<[String]>(value: [])
     
     init() {
-        let messages = messageInput
-            .map { $0 }
-            .scan([String]()) { (currentMessages, newMessage) in
-                return currentMessages + [newMessage]
-            }
+        messageInput
+            .subscribe(onNext: { message in
+                SocketIOManager.shared.sendMessage(message)
+            })
+            .disposed(by: disposeBag)
         
-        messageOutput = messages
-            .startWith([])
-            .observe(on: MainScheduler.instance)
         
         NotificationCenter.default.rx.notification(.newMessage)
-            .map { $0.object as? String }
-            .filter { $0 != nil }
-            .map { $0! }
-            .bind(to: messageInput)
+            .compactMap { $0.object as? String }
+            .subscribe(onNext: { [weak self] message in
+                guard let self = self else { return }
+                var currentMessages = self.messagesOutput.value
+                currentMessages.append(message)
+                self.messagesOutput.accept(currentMessages)
+            })
             .disposed(by: disposeBag)
     }
 }

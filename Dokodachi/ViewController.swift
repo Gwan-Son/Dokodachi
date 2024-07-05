@@ -76,7 +76,7 @@ class ViewController: UIViewController {
             .bind(to: viewModel.messageInput)
             .disposed(by: disposeBag)
         
-        viewModel.messageOutput
+        viewModel.messagesOutput
             .bind(to: tableView.rx.items(cellIdentifier: "Cell")) { index, message, cell in
                 cell.textLabel?.text = message
             }
