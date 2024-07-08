@@ -7,15 +7,18 @@
 
 import UIKit
 import SocketIO
+import RxSwift
 
 class SocketIOManager {
     static let shared = SocketIOManager()
     
-    private var manager: SocketManager = SocketManager(socketURL: URL(string: "http://localhost:3000")!, config: [.log(true), .compress])
+    private var manager: SocketManager
     private var socket: SocketIOClient
     
+    let messageReceived = PublishSubject<String>()
+    
     private init() {
-//        self.manager = SocketManager(socketURL: URL(string: "http://localhost:3000")!, config: [.log(true), .compress])
+        self.manager = SocketManager(socketURL: URL(string: "http://localhost:3000")!, config: [.log(true), .compress])
         self.socket = manager.defaultSocket
         setupSocketEvents()
     }
@@ -30,7 +33,7 @@ class SocketIOManager {
     }
     
     func sendMessage(_ message: String) {
-        socket.emit("sendMessage", message)
+        socket.emit("message", message)
     }
     
     func sendLocation(latitude: Double, longitude: Double) {
@@ -42,9 +45,9 @@ class SocketIOManager {
             print("Socket connected")
         }
         
-        socket.on("newMessage") { data, ack in
+        socket.on("message") { data, ack in
             if let message = data[0] as? String {
-                NotificationCenter.default.post(name: .newMessage, object: message)
+                self.messageReceived.onNext(message)
             }
         }
         

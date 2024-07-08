@@ -80,8 +80,8 @@ class ViewController: UIViewController {
         
         viewModel.messagesOutput
             .bind(to: tableView.rx.items(cellIdentifier: "ChatMessageCell", cellType: ChatMessageCell.self)) { index, message, cell in
-                cell.messageLabel.text = message
-                cell.isIncoming = (index % 2 == 0)
+                cell.messageLabel.text = message.text
+                cell.isIncoming = message.isImcoming
             }
             .disposed(by: disposeBag)
     }
