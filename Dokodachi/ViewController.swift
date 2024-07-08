@@ -32,7 +32,9 @@ class ViewController: UIViewController {
     private func setupUI() {
         view.backgroundColor = .white
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        tableView.register(ChatMessageCell.self, forCellReuseIdentifier: "ChatMessageCell")
+        tableView.separatorStyle = .none
+        tableView.allowsSelection = false
         
         messageTextField.borderStyle = .roundedRect
         messageTextField.placeholder = "Enter message"
@@ -77,8 +79,9 @@ class ViewController: UIViewController {
             .disposed(by: disposeBag)
         
         viewModel.messagesOutput
-            .bind(to: tableView.rx.items(cellIdentifier: "Cell")) { index, message, cell in
-                cell.textLabel?.text = message
+            .bind(to: tableView.rx.items(cellIdentifier: "ChatMessageCell", cellType: ChatMessageCell.self)) { index, message, cell in
+                cell.messageLabel.text = message
+                cell.isIncoming = (index % 2 == 0)
             }
             .disposed(by: disposeBag)
     }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F1A84072C3BBE4900584F50 /* ChatMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1A84062C3BBE4900584F50 /* ChatMessageCell.swift */; };
+		9F1A84092C3BC85C00584F50 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1A84082C3BC85C00584F50 /* Message.swift */; };
 		9F302AD72C33F422000A2A7B /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F302AD62C33F422000A2A7B /* SocketIOManager.swift */; };
 		9F302AD92C3401E2000A2A7B /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F302AD82C3401E2000A2A7B /* ChatViewModel.swift */; };
 		9F302ADB2C3530D8000A2A7B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F302ADA2C3530D8000A2A7B /* LocationManager.swift */; };
@@ -46,6 +48,8 @@
 		604F1778DD006B9A7D6D62F5 /* Pods-Dokodachi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dokodachi.debug.xcconfig"; path = "Target Support Files/Pods-Dokodachi/Pods-Dokodachi.debug.xcconfig"; sourceTree = "<group>"; };
 		735D0742097C77A97FD09F84 /* Pods-DokodachiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DokodachiTests.debug.xcconfig"; path = "Target Support Files/Pods-DokodachiTests/Pods-DokodachiTests.debug.xcconfig"; sourceTree = "<group>"; };
 		86B9DCBCAFE221DCD3C28A78 /* Pods-Dokodachi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dokodachi.release.xcconfig"; path = "Target Support Files/Pods-Dokodachi/Pods-Dokodachi.release.xcconfig"; sourceTree = "<group>"; };
+		9F1A84062C3BBE4900584F50 /* ChatMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageCell.swift; sourceTree = "<group>"; };
+		9F1A84082C3BC85C00584F50 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		9F302AD62C33F422000A2A7B /* SocketIOManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
 		9F302AD82C3401E2000A2A7B /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		9F302ADA2C3530D8000A2A7B /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -148,6 +152,8 @@
 				9FD51F8A2C25724E00A02AEE /* AppDelegate.swift */,
 				9FD51F8C2C25724E00A02AEE /* SceneDelegate.swift */,
 				9FD51F8E2C25724E00A02AEE /* ViewController.swift */,
+				9F1A84082C3BC85C00584F50 /* Message.swift */,
+				9F1A84062C3BBE4900584F50 /* ChatMessageCell.swift */,
 				9FD51F902C25724E00A02AEE /* Main.storyboard */,
 				9FD51F932C25724F00A02AEE /* Assets.xcassets */,
 				9FD51F952C25724F00A02AEE /* LaunchScreen.storyboard */,
@@ -420,6 +426,8 @@
 				9F302ADB2C3530D8000A2A7B /* LocationManager.swift in Sources */,
 				9FD51F8B2C25724E00A02AEE /* AppDelegate.swift in Sources */,
 				9F302AD92C3401E2000A2A7B /* ChatViewModel.swift in Sources */,
+				9F1A84092C3BC85C00584F50 /* Message.swift in Sources */,
+				9F1A84072C3BBE4900584F50 /* ChatMessageCell.swift in Sources */,
 				9FD51F8D2C25724E00A02AEE /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
