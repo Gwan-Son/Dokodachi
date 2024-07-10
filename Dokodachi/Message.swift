@@ -9,5 +9,6 @@ import Foundation
 
 struct Message {
     let text: String
-    let isImcoming: Bool
+    let isIncoming: Bool
+    let username: String
 }
