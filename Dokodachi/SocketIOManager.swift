@@ -12,15 +12,41 @@ import RxSwift
 class SocketIOManager {
     static let shared = SocketIOManager()
     
-    private var manager: SocketManager
-    private var socket: SocketIOClient
+    private let manager: SocketManager
+    private let socket: SocketIOClient
+    private let disposeBag = DisposeBag()
     
-    let messageReceived = PublishSubject<String>()
+    let messageObservable = PublishSubject<[String: Any]>()
     
     private init() {
         self.manager = SocketManager(socketURL: URL(string: "http://localhost:3000")!, config: [.log(true), .compress])
         self.socket = manager.defaultSocket
-        setupSocketEvents()
+        //        setupSocketEvents()
+        setupBindings()
+    }
+    
+    private func setupBindings() {
+        socket.on(clientEvent: .connect) {data, ack in
+            print("Socket connected")
+        }
+        
+        socket.on("chat message") { [weak self] (dataArray, ack) in
+            guard let messageData = dataArray.first as? [String: Any] else { return }
+            self?.messageObservable.onNext(messageData)
+        }
+        
+        socket.on(clientEvent: .disconnect) {data, ack in
+            print("Socket disconnected")
+        }
+        
+        socket.on(clientEvent: .error) {data, ack in
+            print("Socket error: \(data)")
+        }
+        
+        socket.on(clientEvent: .statusChange) {data, ack in
+            print("Socket status change: \(data)")
+        }
+        
     }
     
     func connect() {
@@ -32,41 +58,37 @@ class SocketIOManager {
         socket.disconnect()
     }
     
-    func sendMessage(_ message: String) {
-        socket.emit("message", message)
+    func sendMessage(username: String, message: String) {
+        let messageData: [String: Any] = ["username": username, "message": message]
+        socket.emit("chat message", messageData)
     }
     
-    func sendLocation(latitude: Double, longitude: Double) {
-        socket.emit("sendLocation", ["latitude": latitude, "longitude": longitude])
-    }
+    //    func sendLocation(latitude: Double, longitude: Double) {
+    //        socket.emit("sendLocation", ["latitude": latitude, "longitude": longitude])
+    //    }
     
-    private func setupSocketEvents() {
-        socket.on(clientEvent: .connect) { data, ack in
-            print("Socket connected")
-        }
-        
-        socket.on("message") { data, ack in
-            if let message = data[0] as? String {
-                self.messageReceived.onNext(message)
-            }
-        }
-        
-        socket.on("newLocation") { (data, ack) in
-            if let locationData = data[0] as? [String: Double],
-               let latitude = locationData["latitude"],
-               let longitude = locationData["longitude"] {
-                let location = (latitude: latitude, longitude: longitude)
-                NotificationCenter.default.post(name: .newLocation, object: location)
-            }
-        }
-        
-        socket.on(clientEvent: .disconnect) { data, ack in
-            print("Socket disconnected")
-        }
-    }
-}
-
-extension Notification.Name {
-    static let newMessage = Notification.Name("newMessage")
-    static let newLocation = Notification.Name("newLocation")
+    //    private func setupSocketEvents() {
+    //        socket.on(clientEvent: .connect) { data, ack in
+    //            print("Socket connected")
+    //        }
+    //
+    //        socket.on("message") { data, ack in
+    //            if let message = data[0] as? String {
+    //                self.messageReceived.onNext(message)
+    //            }
+    //        }
+    //
+    ////        socket.on("newLocation") { (data, ack) in
+    ////            if let locationData = data[0] as? [String: Double],
+    ////               let latitude = locationData["latitude"],
+    ////               let longitude = locationData["longitude"] {
+    ////                let location = (latitude: latitude, longitude: longitude)
+    ////                NotificationCenter.default.post(name: .newLocation, object: location)
+    ////            }
+    ////        }
+    //
+    //        socket.on(clientEvent: .disconnect) { data, ack in
+    //            print("Socket disconnected")
+    //        }
+    //    }
 }
