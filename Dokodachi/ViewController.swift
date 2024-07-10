@@ -16,12 +16,22 @@ class ViewController: UIViewController {
     private let messageTextField = UITextField()
     private let sendButton = UIButton(type: .system)
     
-    private let viewModel = ChatViewModel()
+    private let viewModel: ChatViewModel
     private let disposeBag = DisposeBag()
-    private let locationManager = LocationManager()
+//    private let locationManager = LocationManager()
+    
+    init(username: String) {
+        self.viewModel = ChatViewModel(username: username)
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("ChatViewController 실행됨")
         
         setupUI()
         setupBindings()
@@ -81,7 +91,7 @@ class ViewController: UIViewController {
         viewModel.messagesOutput
             .bind(to: tableView.rx.items(cellIdentifier: "ChatMessageCell", cellType: ChatMessageCell.self)) { index, message, cell in
                 cell.messageLabel.text = message.text
-                cell.isIncoming = message.isImcoming
+                cell.isIncoming = message.isIncoming
             }
             .disposed(by: disposeBag)
     }
@@ -93,12 +103,12 @@ class ViewController: UIViewController {
     
 }
 
-extension ViewController {
-    static func setupAppDelegate() {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let window = UIWindow(frame: UIScreen.main.bounds)
-        window.rootViewController = ViewController()
-        window.makeKeyAndVisible()
-        appDelegate.window = window
-    }
-}
+//extension ViewController {
+//    static func setupAppDelegate() {
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        let window = UIWindow(frame: UIScreen.main.bounds)
+//        window.rootViewController = ViewController()
+//        window.makeKeyAndVisible()
+//        appDelegate.window = window
+//    }
+//}
