@@ -11,46 +11,45 @@ import RxCocoa
 
 class ChatViewModel {
     private let disposeBag = DisposeBag()
+    private let username: String
     
     // Inputs
-    let messageInput = PublishSubject<String>()
-    private let messagesSubject = BehaviorSubject<[Message]>(value: [])
+    let messageInput = PublishRelay<String>()
     
     // Outputs
-    var messagesOutput: Observable<[Message]> {
-        return messagesSubject.asObservable()
-    }
+    let messagesOutput = BehaviorRelay<[Message]>(value: [])
     
-    init() {
+    init(username: String) {
+        self.username = username
+        
         messageInput
             .subscribe(onNext: { [weak self] message in
-                guard let self = self else { return }
-                var currentMessages = (try? self.messagesSubject.value()) ?? []
-                let newMessage = Message(text: message, isImcoming: false)
-                currentMessages.append(newMessage)
-                self.messagesSubject.onNext(currentMessages)
-                SocketIOManager.shared.sendMessage(message)
+                self?.sendMessage(message)
             })
             .disposed(by: disposeBag)
         
-        SocketIOManager.shared.messageReceived
-            .subscribe(onNext: { [weak self] message in
-                guard let self = self else { return }
-                var currentMessages = (try? self.messagesSubject.value()) ?? []
-                let newMessage = Message(text: message, isImcoming: true)
-                currentMessages.append(newMessage)
-                self.messagesSubject.onNext(currentMessages)
+        // Receive messages from the socket
+        SocketIOManager.shared.messageObservable
+            .subscribe(onNext: { [weak self] messageData in
+                self?.receiveMessage(messageData)
             })
             .disposed(by: disposeBag)
+    }
+    
+    private func sendMessage(_ message: String) {
+        let chatMessage = Message(text: message, isIncoming: false, username: username)
+        messagesOutput.accept(messagesOutput.value + [chatMessage])
         
-//        NotificationCenter.default.rx.notification(.newMessage)
-//            .compactMap { $0.object as? String }
-//            .subscribe(onNext: { [weak self] message in
-//                guard let self = self else { return }
-//                var currentMessages = self.messagesOutput.value
-//                currentMessages.append(message)
-//                self.messagesOutput.accept(currentMessages)
-//            })
-//            .disposed(by: disposeBag)
+        // Send the message to the server
+        SocketIOManager.shared.sendMessage(username: username, message: message)
+    }
+    
+    private func receiveMessage(_ messageData: [String: Any]) {
+        guard let username = messageData["username"] as? String,
+              let message = messageData["message"] as? String else { return }
+        
+        let isIncoming = username != self.username
+        let chatMessage = Message(text: message, isIncoming: isIncoming, username: username)
+        messagesOutput.accept(messagesOutput.value + [chatMessage])
     }
 }
