@@ -11,4 +11,10 @@ struct Message {
     let text: String
     let isIncoming: Bool
     let username: String
+    
+    init(text: String, isIncoming: Bool, username: String) {
+        self.text = text
+        self.isIncoming = isIncoming
+        self.username = username
+    }
 }
