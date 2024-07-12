@@ -42,6 +42,8 @@ class ViewController: UIViewController {
     private func setupUI() {
         view.backgroundColor = .white
         
+//        navigationController?.navigationBar.topItem?.backButtonTitle = "뒤로가기"
+        
         tableView.register(ChatMessageCell.self, forCellReuseIdentifier: "ChatMessageCell")
         tableView.separatorStyle = .none
         tableView.allowsSelection = false

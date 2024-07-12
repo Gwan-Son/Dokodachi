@@ -14,8 +14,7 @@ class ChatMessageCell: UITableViewCell {
     
     var leadingConstraint: NSLayoutConstraint!
     var trailingConstraint: NSLayoutConstraint!
-    var testL: NSLayoutConstraint!
-    var testT: NSLayoutConstraint!
+    var usernameLeadingConstraint: NSLayoutConstraint!
     
     var isIncoming: Bool = true {
         didSet {
@@ -24,8 +23,8 @@ class ChatMessageCell: UITableViewCell {
             
             leadingConstraint.isActive = isIncoming
             trailingConstraint.isActive = !isIncoming
-            testL.isActive = isIncoming
-            testT.isActive = !isIncoming
+            usernameLeadingConstraint.isActive = isIncoming
+            usernameLabel.isHidden = !isIncoming
         }
     }
     
@@ -48,8 +47,6 @@ class ChatMessageCell: UITableViewCell {
         addSubview(usernameLabel)
         
         let constraints = [
-            usernameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 0),
-            usernameLabel.bottomAnchor.constraint(equalTo: messageLabel.topAnchor, constant: 32),
             
             messageLabel.topAnchor.constraint(equalTo: topAnchor, constant: 16),
             messageLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
@@ -65,8 +62,8 @@ class ChatMessageCell: UITableViewCell {
         
         leadingConstraint = messageLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 32)
         trailingConstraint = messageLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -32)
-        testL = usernameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 32)
-        testT = usernameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -32)
+        usernameLeadingConstraint = usernameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 32)
+
     }
     
     required init?(coder: NSCoder) {
