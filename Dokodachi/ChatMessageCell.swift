@@ -18,8 +18,8 @@ class ChatMessageCell: UITableViewCell {
     
     var isIncoming: Bool = true {
         didSet {
-            bubbleBackgroundView.backgroundColor = isIncoming ? .white : .darkGray
-            messageLabel.textColor = isIncoming ? .black : .white
+            bubbleBackgroundView.backgroundColor = isIncoming ? .white : .yellow
+            messageLabel.textColor = .black
             
             leadingConstraint.isActive = isIncoming
             trailingConstraint.isActive = !isIncoming
@@ -47,6 +47,13 @@ class ChatMessageCell: UITableViewCell {
         addSubview(usernameLabel)
         
         let constraints = [
+            /*
+             usernameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 0),
+             usernameLabel.bottomAnchor.constraint(equalTo: bubbleBackgroundView.topAnchor, constant: 0),
+             
+             messageLabel.topAnchor.constraint(equalTo: usernameLabel.bottomAnchor, constant: 16),
+             */
+            usernameLabel.bottomAnchor.constraint(equalTo: bubbleBackgroundView.topAnchor, constant: 0),
             
             messageLabel.topAnchor.constraint(equalTo: topAnchor, constant: 16),
             messageLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
