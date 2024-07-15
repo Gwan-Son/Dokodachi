@@ -46,6 +46,8 @@ class ChatMessageCell: UITableViewCell {
         usernameLabel.translatesAutoresizingMaskIntoConstraints = false
         addSubview(usernameLabel)
         
+        // TODO: - 내가 보낸 메시지와 상대가 보낸 메시지의 constraint를 따로 만들어서 active
+        
         let constraints = [
             /*
              usernameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 0),
@@ -53,9 +55,10 @@ class ChatMessageCell: UITableViewCell {
              
              messageLabel.topAnchor.constraint(equalTo: usernameLabel.bottomAnchor, constant: 16),
              */
+            usernameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 0),
             usernameLabel.bottomAnchor.constraint(equalTo: bubbleBackgroundView.topAnchor, constant: 0),
             
-            messageLabel.topAnchor.constraint(equalTo: topAnchor, constant: 16),
+            messageLabel.topAnchor.constraint(equalTo: topAnchor, constant: 32),
             messageLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
             messageLabel.widthAnchor.constraint(lessThanOrEqualToConstant: 250),
             
