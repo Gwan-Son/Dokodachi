@@ -45,6 +45,7 @@ class ViewController: UIViewController {
         
         tableView.register(ChatMessageCell.self, forCellReuseIdentifier: "ChatMessageCell")
         tableView.separatorStyle = .none
+        
         tableView.allowsSelection = false
         tableView.backgroundColor = .gray
         
@@ -97,6 +98,22 @@ class ViewController: UIViewController {
                 cell.isIncoming = message.isIncoming
             }
             .disposed(by: disposeBag)
+        
+        // 채팅이 tableView 아래에 추가될 때 마다 자동 스크롤되는 기능
+        viewModel.messagesOutput
+            .subscribe(onNext: {[weak self] _ in
+                self?.scrollToBottom()
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    // 채팅이 tableView 아래에 추가될 때 마다 자동 스크롤되는 기능
+    private func scrollToBottom() {
+        let numberOfRows = tableView.numberOfRows(inSection: 0)
+        if numberOfRows > 0 {
+            let indexPath = IndexPath(row: numberOfRows - 1, section: 0)
+            tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+        }
     }
     
     deinit {
@@ -106,12 +123,3 @@ class ViewController: UIViewController {
     
 }
 
-//extension ViewController {
-//    static func setupAppDelegate() {
-//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//        let window = UIWindow(frame: UIScreen.main.bounds)
-//        window.rootViewController = ViewController()
-//        window.makeKeyAndVisible()
-//        appDelegate.window = window
-//    }
-//}
