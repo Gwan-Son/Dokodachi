@@ -122,6 +122,7 @@ class ChatMessageCell: UITableViewCell {
     }
     
     func configure(with message: Message) {
+        backgroundColor = .gray
         messageLabel.text = message.text
         bubbleBackgroundView.backgroundColor = message.isIncoming ? .white : .yellow
         messageLabel.textColor = .black
@@ -129,12 +130,12 @@ class ChatMessageCell: UITableViewCell {
         if message.isIncoming {
             usernameLabel.text = message.username
             contentView.addSubview(usernameLabel)
-            usernameTopConstraint = usernameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10)
+            usernameTopConstraint = usernameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0)
             usernameTopConstraint.isActive = true
-            usernameLabel.leadingAnchor.constraint(equalTo: bubbleBackgroundView.leadingAnchor, constant: 16).isActive = true
-            messageTopConstraint = messageLabel.topAnchor.constraint(equalTo: usernameLabel.bottomAnchor, constant: 4)
+            usernameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 32).isActive = true
+            messageTopConstraint = messageLabel.topAnchor.constraint(equalTo: topAnchor, constant: 32)
         } else {
-            messageTopConstraint = messageLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10)
+            messageTopConstraint = messageLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 32)
         }
         messageTopConstraint.isActive = true
         
@@ -152,9 +153,11 @@ class ChatMessageCell: UITableViewCell {
             leadingConstraint.isActive = false
             trailingConstraint.isActive = true
         }
+        
+        //TODO: - MessageLabel의 leading과 trailing은 isIncoming에 따라 수정되어야함.
         messageLabel.leadingAnchor.constraint(equalTo: bubbleBackgroundView.leadingAnchor, constant: 16).isActive = true
         messageLabel.trailingAnchor.constraint(equalTo: bubbleBackgroundView.trailingAnchor, constant: -16).isActive = true
-        messageLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10).isActive = true
+        messageLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16).isActive = true
     }
     
     required init?(coder: NSCoder) {
