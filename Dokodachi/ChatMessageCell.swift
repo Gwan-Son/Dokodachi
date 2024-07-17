@@ -29,87 +29,14 @@ class ChatMessageCell: UITableViewCell {
     
     var leadingConstraint: NSLayoutConstraint!
     var trailingConstraint: NSLayoutConstraint!
-//    var usernameLeadingConstraint: NSLayoutConstraint!
     var usernameTopConstraint: NSLayoutConstraint!
     var messageTopConstraint: NSLayoutConstraint!
-    
-//    var isIncoming: Bool = true {
-//        didSet {
-//            bubbleBackgroundView.backgroundColor = isIncoming ? .white : .yellow
-//            messageLabel.textColor = .black
-//            
-//            leadingConstraint.isActive = isIncoming
-//            trailingConstraint.isActive = !isIncoming
-//            usernameLeadingConstraint.isActive = isIncoming
-//            usernameLabel.isHidden = !isIncoming
-//        }
-//    }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(bubbleBackgroundView)
         contentView.addSubview(messageLabel)
     }
-    
-//    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-//        super.init(style: style, reuseIdentifier: reuseIdentifier)
-//        
-//        backgroundColor = .clear
-//        
-//        bubbleBackgroundView.backgroundColor = .yellow
-//        bubbleBackgroundView.layer.cornerRadius = 12
-//        bubbleBackgroundView.translatesAutoresizingMaskIntoConstraints = false
-//        addSubview(bubbleBackgroundView)
-//        
-//        messageLabel.numberOfLines = 0
-//        messageLabel.translatesAutoresizingMaskIntoConstraints = false
-//        addSubview(messageLabel)
-//        
-//        usernameLabel.font = .systemFont(ofSize: 14)
-//        usernameLabel.translatesAutoresizingMaskIntoConstraints = false
-//        addSubview(usernameLabel)
-//        
-//        // TODO: - 내가 보낸 메시지와 상대가 보낸 메시지의 constraint를 따로 만들어서 active
-//        
-//        oppositeConstraint = [ // 상대 메시지
-//            usernameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 0),
-//            usernameLabel.bottomAnchor.constraint(equalTo: bubbleBackgroundView.topAnchor, constant: 0),
-//            
-//            messageLabel.topAnchor.constraint(equalTo: topAnchor, constant: 32),
-//            messageLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
-//            messageLabel.widthAnchor.constraint(lessThanOrEqualToConstant: 250),
-//            
-//            bubbleBackgroundView.topAnchor.constraint(equalTo: messageLabel.topAnchor, constant: -8),
-//            bubbleBackgroundView.leadingAnchor.constraint(equalTo: messageLabel.leadingAnchor, constant: -8),
-//            bubbleBackgroundView.bottomAnchor.constraint(equalTo: messageLabel.bottomAnchor, constant: 8),
-//            bubbleBackgroundView.trailingAnchor.constraint(equalTo: messageLabel.trailingAnchor, constant: 8),
-//        ]
-//        
-////        myConstraint = [ // 내 메시지
-////            /*
-////             usernameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 0),
-////             usernameLabel.bottomAnchor.constraint(equalTo: bubbleBackgroundView.topAnchor, constant: 0),
-////             
-////             messageLabel.topAnchor.constraint(equalTo: usernameLabel.bottomAnchor, constant: 16),
-////             */
-////            
-////            messageLabel.topAnchor.constraint(equalTo: topAnchor, constant: 16),
-////            messageLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
-////            messageLabel.widthAnchor.constraint(lessThanOrEqualToConstant: 250),
-////            
-////            bubbleBackgroundView.topAnchor.constraint(equalTo: messageLabel.topAnchor, constant: -8),
-////            bubbleBackgroundView.leadingAnchor.constraint(equalTo: messageLabel.leadingAnchor, constant: -8),
-////            bubbleBackgroundView.bottomAnchor.constraint(equalTo: messageLabel.bottomAnchor, constant: 8),
-////            bubbleBackgroundView.trailingAnchor.constraint(equalTo: messageLabel.trailingAnchor, constant: 8),
-////        ]
-//        
-//        NSLayoutConstraint.activate(oppositeConstraint)
-//        
-//        leadingConstraint = messageLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 32)
-//        trailingConstraint = messageLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -32)
-//        usernameLeadingConstraint = usernameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 32)
-//
-//    }
     
     override func prepareForReuse() {
         super.prepareForReuse()
@@ -148,21 +75,6 @@ class ChatMessageCell: UITableViewCell {
         bubbleBackgroundView.leadingAnchor.constraint(equalTo: messageLabel.leadingAnchor, constant: -8).isActive = true
         bubbleBackgroundView.bottomAnchor.constraint(equalTo: messageLabel.bottomAnchor, constant: 8).isActive = true
         bubbleBackgroundView.trailingAnchor.constraint(equalTo: messageLabel.trailingAnchor, constant: 8).isActive = true
-        
-//        leadingConstraint = bubbleBackgroundView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 32)
-//        trailingConstraint = bubbleBackgroundView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -32)
-//                
-//        if message.isIncoming {
-//            leadingConstraint.isActive = true
-//            trailingConstraint.isActive = false
-//        } else {
-//            leadingConstraint.isActive = false
-//            trailingConstraint.isActive = true
-//        }
-        
-        //TODO: - MessageLabel의 leading과 trailing은 isIncoming에 따라 수정되어야함.
-//        messageLabel.leadingAnchor.constraint(equalTo: bubbleBackgroundView.leadingAnchor, constant: 16).isActive = true
-//        messageLabel.trailingAnchor.constraint(equalTo: bubbleBackgroundView.trailingAnchor, constant: -16).isActive = true
         
     }
     
