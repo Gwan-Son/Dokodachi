@@ -29,12 +29,9 @@ class ChatMessageCell: UITableViewCell {
     
     var leadingConstraint: NSLayoutConstraint!
     var trailingConstraint: NSLayoutConstraint!
-    var usernameLeadingConstraint: NSLayoutConstraint!
+//    var usernameLeadingConstraint: NSLayoutConstraint!
     var usernameTopConstraint: NSLayoutConstraint!
     var messageTopConstraint: NSLayoutConstraint!
-    
-    var myConstraint: [NSLayoutConstraint]!
-    var oppositeConstraint: [NSLayoutConstraint]!
     
 //    var isIncoming: Bool = true {
 //        didSet {
@@ -119,6 +116,8 @@ class ChatMessageCell: UITableViewCell {
         usernameLabel.removeFromSuperview()
         messageTopConstraint.isActive = false
         usernameTopConstraint?.isActive = false
+        leadingConstraint?.isActive = false
+        trailingConstraint?.isActive = false
     }
     
     func configure(with message: Message) {
@@ -133,31 +132,38 @@ class ChatMessageCell: UITableViewCell {
             usernameTopConstraint = usernameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0)
             usernameTopConstraint.isActive = true
             usernameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 32).isActive = true
+            usernameLabel.bottomAnchor.constraint(equalTo: bubbleBackgroundView.topAnchor, constant: 0).isActive = true
             messageTopConstraint = messageLabel.topAnchor.constraint(equalTo: topAnchor, constant: 32)
-        } else {
-            messageTopConstraint = messageLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 32)
-        }
-        messageTopConstraint.isActive = true
-        
-        bubbleBackgroundView.topAnchor.constraint(equalTo: messageLabel.topAnchor, constant: -8).isActive = true
-        bubbleBackgroundView.bottomAnchor.constraint(equalTo: messageLabel.bottomAnchor, constant: 8).isActive = true
-        bubbleBackgroundView.widthAnchor.constraint(lessThanOrEqualToConstant: 250).isActive = true
-        
-        leadingConstraint = bubbleBackgroundView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 32)
-        trailingConstraint = bubbleBackgroundView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -32)
-                
-        if message.isIncoming {
+            leadingConstraint =  messageLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 32)
             leadingConstraint.isActive = true
-            trailingConstraint.isActive = false
         } else {
-            leadingConstraint.isActive = false
+            messageTopConstraint = messageLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16)
+            trailingConstraint =  messageLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -32)
             trailingConstraint.isActive = true
         }
+        messageTopConstraint.isActive = true
+        messageLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16).isActive = true
+        messageLabel.widthAnchor.constraint(lessThanOrEqualToConstant: 250).isActive = true
+        bubbleBackgroundView.topAnchor.constraint(equalTo: messageLabel.topAnchor, constant: -8).isActive = true
+        bubbleBackgroundView.leadingAnchor.constraint(equalTo: messageLabel.leadingAnchor, constant: -8).isActive = true
+        bubbleBackgroundView.bottomAnchor.constraint(equalTo: messageLabel.bottomAnchor, constant: 8).isActive = true
+        bubbleBackgroundView.trailingAnchor.constraint(equalTo: messageLabel.trailingAnchor, constant: 8).isActive = true
+        
+//        leadingConstraint = bubbleBackgroundView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 32)
+//        trailingConstraint = bubbleBackgroundView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -32)
+//                
+//        if message.isIncoming {
+//            leadingConstraint.isActive = true
+//            trailingConstraint.isActive = false
+//        } else {
+//            leadingConstraint.isActive = false
+//            trailingConstraint.isActive = true
+//        }
         
         //TODO: - MessageLabel의 leading과 trailing은 isIncoming에 따라 수정되어야함.
-        messageLabel.leadingAnchor.constraint(equalTo: bubbleBackgroundView.leadingAnchor, constant: 16).isActive = true
-        messageLabel.trailingAnchor.constraint(equalTo: bubbleBackgroundView.trailingAnchor, constant: -16).isActive = true
-        messageLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16).isActive = true
+//        messageLabel.leadingAnchor.constraint(equalTo: bubbleBackgroundView.leadingAnchor, constant: 16).isActive = true
+//        messageLabel.trailingAnchor.constraint(equalTo: bubbleBackgroundView.trailingAnchor, constant: -16).isActive = true
+        
     }
     
     required init?(coder: NSCoder) {
