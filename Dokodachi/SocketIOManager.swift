@@ -58,8 +58,10 @@ class SocketIOManager {
         socket.disconnect()
     }
     
-    func sendMessage(username: String, message: String) {
-        let messageData: [String: Any] = ["username": username, "message": message]
+    func sendMessage(username: String, message: String, time: Date) {
+        let dateFormatter = ISO8601DateFormatter()
+        let timeString = dateFormatter.string(from: time)
+        let messageData: [String: Any] = ["username": username, "message": message, "time": timeString]
         socket.emit("chat message", messageData)
     }
     

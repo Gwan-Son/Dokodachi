@@ -11,10 +11,12 @@ struct Message {
     let text: String
     let isIncoming: Bool
     let username: String
+    let time: Date
     
-    init(text: String, isIncoming: Bool, username: String) {
+    init(text: String, isIncoming: Bool, username: String, time: Date) {
         self.text = text
         self.isIncoming = isIncoming
         self.username = username
+        self.time = time
     }
 }
