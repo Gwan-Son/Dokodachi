@@ -13,9 +13,13 @@
 		9F302AD72C33F422000A2A7B /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F302AD62C33F422000A2A7B /* SocketIOManager.swift */; };
 		9F302AD92C3401E2000A2A7B /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F302AD82C3401E2000A2A7B /* ChatViewModel.swift */; };
 		9F302ADB2C3530D8000A2A7B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F302ADA2C3530D8000A2A7B /* LocationManager.swift */; };
+		9F303D452C48E58D002C75F0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9F303D442C48E58C002C75F0 /* GoogleService-Info.plist */; };
+		9F303D482C48E893002C75F0 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 9F303D472C48E893002C75F0 /* FirebaseAuth */; };
+		9F303D4A2C48E893002C75F0 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 9F303D492C48E893002C75F0 /* FirebaseFirestore */; };
+		9F303D4C2C48EB54002C75F0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F303D4B2C48EB54002C75F0 /* LoginViewController.swift */; };
 		9FD51F8B2C25724E00A02AEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD51F8A2C25724E00A02AEE /* AppDelegate.swift */; };
 		9FD51F8D2C25724E00A02AEE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD51F8C2C25724E00A02AEE /* SceneDelegate.swift */; };
-		9FD51F8F2C25724E00A02AEE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD51F8E2C25724E00A02AEE /* ViewController.swift */; };
+		9FD51F8F2C25724E00A02AEE /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD51F8E2C25724E00A02AEE /* ChatViewController.swift */; };
 		9FD51F942C25724F00A02AEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FD51F932C25724F00A02AEE /* Assets.xcassets */; };
 		9FD51F972C25724F00A02AEE /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 9FD51F962C25724F00A02AEE /* Base */; };
 		9FD51FA22C25724F00A02AEE /* DokodachiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD51FA12C25724F00A02AEE /* DokodachiTests.swift */; };
@@ -54,11 +58,13 @@
 		9F302AD62C33F422000A2A7B /* SocketIOManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
 		9F302AD82C3401E2000A2A7B /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		9F302ADA2C3530D8000A2A7B /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		9F303D442C48E58C002C75F0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9F303D4B2C48EB54002C75F0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9FB2E77BF5B719EA3D3FCFC4 /* Pods_Dokodachi_DokodachiUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dokodachi_DokodachiUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FD51F872C25724E00A02AEE /* Dokodachi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dokodachi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FD51F8A2C25724E00A02AEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9FD51F8C2C25724E00A02AEE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		9FD51F8E2C25724E00A02AEE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9FD51F8E2C25724E00A02AEE /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		9FD51F932C25724F00A02AEE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9FD51F962C25724F00A02AEE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9FD51F982C25724F00A02AEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -79,6 +85,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2AE7F9BAD93148496EC000C /* Pods_Dokodachi.framework in Frameworks */,
+				9F303D482C48E893002C75F0 /* FirebaseAuth in Frameworks */,
+				9F303D4A2C48E893002C75F0 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,7 +159,8 @@
 			children = (
 				9FD51F8A2C25724E00A02AEE /* AppDelegate.swift */,
 				9FD51F8C2C25724E00A02AEE /* SceneDelegate.swift */,
-				9FD51F8E2C25724E00A02AEE /* ViewController.swift */,
+				9FD51F8E2C25724E00A02AEE /* ChatViewController.swift */,
+				9F303D4B2C48EB54002C75F0 /* LoginViewController.swift */,
 				9F1A840A2C3E5ADE00584F50 /* UsernameViewController.swift */,
 				9F1A84082C3BC85C00584F50 /* Message.swift */,
 				9F1A84062C3BBE4900584F50 /* ChatMessageCell.swift */,
@@ -161,6 +170,7 @@
 				9F302AD62C33F422000A2A7B /* SocketIOManager.swift */,
 				9F302AD82C3401E2000A2A7B /* ChatViewModel.swift */,
 				9F302ADA2C3530D8000A2A7B /* LocationManager.swift */,
+				9F303D442C48E58C002C75F0 /* GoogleService-Info.plist */,
 			);
 			path = Dokodachi;
 			sourceTree = "<group>";
@@ -200,6 +210,10 @@
 			dependencies = (
 			);
 			name = Dokodachi;
+			packageProductDependencies = (
+				9F303D472C48E893002C75F0 /* FirebaseAuth */,
+				9F303D492C48E893002C75F0 /* FirebaseFirestore */,
+			);
 			productName = Dokodachi;
 			productReference = 9FD51F872C25724E00A02AEE /* Dokodachi.app */;
 			productType = "com.apple.product-type.application";
@@ -275,6 +289,9 @@
 				Base,
 			);
 			mainGroup = 9FD51F7E2C25724E00A02AEE;
+			packageReferences = (
+				9F303D462C48E893002C75F0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 9FD51F882C25724E00A02AEE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -292,6 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9FD51F942C25724F00A02AEE /* Assets.xcassets in Resources */,
+				9F303D452C48E58D002C75F0 /* GoogleService-Info.plist in Resources */,
 				9FD51F972C25724F00A02AEE /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -422,12 +440,13 @@
 			files = (
 				9F1A840B2C3E5ADE00584F50 /* UsernameViewController.swift in Sources */,
 				9F302AD72C33F422000A2A7B /* SocketIOManager.swift in Sources */,
-				9FD51F8F2C25724E00A02AEE /* ViewController.swift in Sources */,
+				9FD51F8F2C25724E00A02AEE /* ChatViewController.swift in Sources */,
 				9F302ADB2C3530D8000A2A7B /* LocationManager.swift in Sources */,
 				9FD51F8B2C25724E00A02AEE /* AppDelegate.swift in Sources */,
 				9F302AD92C3401E2000A2A7B /* ChatViewModel.swift in Sources */,
 				9F1A84092C3BC85C00584F50 /* Message.swift in Sources */,
 				9F1A84072C3BBE4900584F50 /* ChatMessageCell.swift in Sources */,
+				9F303D4C2C48EB54002C75F0 /* LoginViewController.swift in Sources */,
 				9FD51F8D2C25724E00A02AEE /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -771,6 +790,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9F303D462C48E893002C75F0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.29.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9F303D472C48E893002C75F0 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9F303D462C48E893002C75F0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		9F303D492C48E893002C75F0 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9F303D462C48E893002C75F0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9FD51F7F2C25724E00A02AEE /* Project object */;
 }

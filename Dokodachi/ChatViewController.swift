@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 
 
-class ViewController: UIViewController {
+class ChatViewController: UIViewController {
     
     private let tableView = UITableView()
     private let messageTextField = UITextField()

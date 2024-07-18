@@ -56,7 +56,7 @@ class UsernameViewController: UIViewController {
             return
         }
         print("Username entered: \(username)")
-        let chatVC = ViewController(username: username)
+        let chatVC = ChatViewController(username: username)
         self.navigationController?.pushViewController(chatVC, animated: true)
     }
 }
