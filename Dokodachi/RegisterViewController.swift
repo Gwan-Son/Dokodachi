@@ -1,17 +1,17 @@
 //
-//  LoginViewController.swift
+//  RegisterViewController.swift
 //  Dokodachi
 //
-//  Created by 심관혁 on 7/18/24.
+//  Created by 심관혁 on 7/19/24.
 //
 
 import UIKit
-import FirebaseAuth
-import FirebaseCore
 import RxSwift
 import RxCocoa
+import FirebaseAuth
+import FirebaseCore
 
-class LoginViewController: UIViewController {
+class RegisterViewController: UIViewController {
     
     var disposeBag = DisposeBag()
     
@@ -32,15 +32,16 @@ class LoginViewController: UIViewController {
     let passwordTextField: UITextField = {
         let textField = UITextField()
         textField.borderStyle = .roundedRect
-        textField.placeholder = "password"
+        textField.placeholder = "8자리 이상 알파벳과 특수문자를 입력해주세요"
         textField.isSecureTextEntry = true
+        textField.textContentType = .oneTimeCode
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
     
-    let loginButton: UIButton = {
+    let registerButton: UIButton = {
         let button = UIButton(type: .roundedRect)
-        button.setTitle("Login", for: .normal)
+        button.setTitle("Register", for: .normal)
         button.backgroundColor = UIColor(.accentColor)
         button.setTitle("Enter email & password", for: .disabled)
         button.setTitleColor(.white, for: .normal)
@@ -50,18 +51,12 @@ class LoginViewController: UIViewController {
         return button
     }()
     
-    let registerButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("Register", for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
+        self.title = "Register"
         setupUI()
         bind()
-        self.title = "Login"
     }
     
     private func setupUI() {
@@ -70,7 +65,6 @@ class LoginViewController: UIViewController {
         registerButton.addTarget(self, action: #selector(registerButtonTapped), for: .touchUpInside)
         view.addSubview(emailTextField)
         view.addSubview(passwordTextField)
-        view.addSubview(loginButton)
         view.addSubview(registerButton)
         
         NSLayoutConstraint.activate([
@@ -85,13 +79,10 @@ class LoginViewController: UIViewController {
             passwordTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
             passwordTextField.heightAnchor.constraint(equalToConstant: 44),
             
-            loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 20),
-            loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            loginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
-            loginButton.heightAnchor.constraint(equalToConstant: 44),
-            
-            registerButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 20),
-            registerButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            registerButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 20),
+            registerButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            registerButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+            registerButton.heightAnchor.constraint(equalToConstant: 44)
         ])
     }
     
@@ -116,7 +107,7 @@ class LoginViewController: UIViewController {
         
         Observable.combineLatest(emailValid, pwValid, resultSelector: { s1, s2 in s1 && s2})
             .subscribe { b in
-                self.loginButton.isEnabled = b
+                self.registerButton.isEnabled = b
             }
             .disposed(by: disposeBag)
     }
@@ -131,24 +122,24 @@ class LoginViewController: UIViewController {
         return pred.evaluate(with: password)
     }
     
-    @objc private func loginButtonTapped() {
+    @objc func registerButtonTapped() {
         guard let email = emailTextField.text else { return }
         guard let pw = passwordTextField.text else { return }
         
-        Auth.auth().signIn(withEmail: email, password: pw) { result, error in
-            if result == nil {
-                print("login failed")
-                if let error = error {
-                    print("error: \(error)")
+        Auth.auth().createUser(withEmail: email, password: pw) { result, error in
+            if let error = error {
+                print("Error: \(error)")
+            }
+            
+            if let result = result {
+                print("result: \(result)")
+                let alert = UIAlertController(title: "회원가입 완료", message: "회원가입이 완료되었습니다.", preferredStyle: .alert)
+                let okButton = UIAlertAction(title: "확인", style: .default) { [weak self] _ in
+                    self?.navigationController?.popViewController(animated: true)
                 }
-            } else if result != nil {
-                print("login success")
+                alert.addAction(okButton)
+                self.present(alert, animated: true)
             }
         }
-    }
-    
-    @objc private func registerButtonTapped() {
-        let registerVC = RegisterViewController()
-        self.navigationController?.pushViewController(registerVC, animated: true)
     }
 }
