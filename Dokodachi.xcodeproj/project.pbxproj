@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9F1A84072C3BBE4900584F50 /* ChatMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1A84062C3BBE4900584F50 /* ChatMessageCell.swift */; };
-		9F1A84092C3BC85C00584F50 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1A84082C3BC85C00584F50 /* Message.swift */; };
+		9F1A84092C3BC85C00584F50 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1A84082C3BC85C00584F50 /* MessageModel.swift */; };
 		9F1A840B2C3E5ADE00584F50 /* UsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1A840A2C3E5ADE00584F50 /* UsernameViewController.swift */; };
 		9F302AD72C33F422000A2A7B /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F302AD62C33F422000A2A7B /* SocketIOManager.swift */; };
 		9F302AD92C3401E2000A2A7B /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F302AD82C3401E2000A2A7B /* ChatViewModel.swift */; };
@@ -18,6 +18,7 @@
 		9F303D4A2C48E893002C75F0 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 9F303D492C48E893002C75F0 /* FirebaseFirestore */; };
 		9F303D4C2C48EB54002C75F0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F303D4B2C48EB54002C75F0 /* LoginViewController.swift */; };
 		9F303D4E2C4A3C4C002C75F0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F303D4D2C4A3C4C002C75F0 /* RegisterViewController.swift */; };
+		9F303D542C4BB40E002C75F0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F303D532C4BB40E002C75F0 /* HomeViewController.swift */; };
 		9FD51F8B2C25724E00A02AEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD51F8A2C25724E00A02AEE /* AppDelegate.swift */; };
 		9FD51F8D2C25724E00A02AEE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD51F8C2C25724E00A02AEE /* SceneDelegate.swift */; };
 		9FD51F8F2C25724E00A02AEE /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD51F8E2C25724E00A02AEE /* ChatViewController.swift */; };
@@ -54,7 +55,7 @@
 		735D0742097C77A97FD09F84 /* Pods-DokodachiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DokodachiTests.debug.xcconfig"; path = "Target Support Files/Pods-DokodachiTests/Pods-DokodachiTests.debug.xcconfig"; sourceTree = "<group>"; };
 		86B9DCBCAFE221DCD3C28A78 /* Pods-Dokodachi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dokodachi.release.xcconfig"; path = "Target Support Files/Pods-Dokodachi/Pods-Dokodachi.release.xcconfig"; sourceTree = "<group>"; };
 		9F1A84062C3BBE4900584F50 /* ChatMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageCell.swift; sourceTree = "<group>"; };
-		9F1A84082C3BC85C00584F50 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		9F1A84082C3BC85C00584F50 /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
 		9F1A840A2C3E5ADE00584F50 /* UsernameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameViewController.swift; sourceTree = "<group>"; };
 		9F302AD62C33F422000A2A7B /* SocketIOManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
 		9F302AD82C3401E2000A2A7B /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
@@ -62,6 +63,7 @@
 		9F303D442C48E58C002C75F0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9F303D4B2C48EB54002C75F0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9F303D4D2C4A3C4C002C75F0 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		9F303D532C4BB40E002C75F0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		9FB2E77BF5B719EA3D3FCFC4 /* Pods_Dokodachi_DokodachiUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dokodachi_DokodachiUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FD51F872C25724E00A02AEE /* Dokodachi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dokodachi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FD51F8A2C25724E00A02AEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -134,6 +136,44 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		9F303D4F2C4BAFAE002C75F0 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				9F302AD62C33F422000A2A7B /* SocketIOManager.swift */,
+				9F302ADA2C3530D8000A2A7B /* LocationManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		9F303D502C4BAFD8002C75F0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9F1A84082C3BC85C00584F50 /* MessageModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9F303D512C4BAFE4002C75F0 /* ChatView */ = {
+			isa = PBXGroup;
+			children = (
+				9F302AD82C3401E2000A2A7B /* ChatViewModel.swift */,
+				9FD51F8E2C25724E00A02AEE /* ChatViewController.swift */,
+				9F1A84062C3BBE4900584F50 /* ChatMessageCell.swift */,
+			);
+			path = ChatView;
+			sourceTree = "<group>";
+		};
+		9F303D522C4BAFF9002C75F0 /* LoginView */ = {
+			isa = PBXGroup;
+			children = (
+				9F1A840A2C3E5ADE00584F50 /* UsernameViewController.swift */,
+				9F303D4B2C48EB54002C75F0 /* LoginViewController.swift */,
+				9F303D4D2C4A3C4C002C75F0 /* RegisterViewController.swift */,
+				9F303D532C4BB40E002C75F0 /* HomeViewController.swift */,
+			);
+			path = LoginView;
+			sourceTree = "<group>";
+		};
 		9FD51F7E2C25724E00A02AEE = {
 			isa = PBXGroup;
 			children = (
@@ -161,18 +201,13 @@
 			children = (
 				9FD51F8A2C25724E00A02AEE /* AppDelegate.swift */,
 				9FD51F8C2C25724E00A02AEE /* SceneDelegate.swift */,
-				9FD51F8E2C25724E00A02AEE /* ChatViewController.swift */,
-				9F303D4B2C48EB54002C75F0 /* LoginViewController.swift */,
-				9F1A840A2C3E5ADE00584F50 /* UsernameViewController.swift */,
-				9F1A84082C3BC85C00584F50 /* Message.swift */,
-				9F1A84062C3BBE4900584F50 /* ChatMessageCell.swift */,
-				9F303D4D2C4A3C4C002C75F0 /* RegisterViewController.swift */,
+				9F303D4F2C4BAFAE002C75F0 /* Manager */,
+				9F303D522C4BAFF9002C75F0 /* LoginView */,
+				9F303D512C4BAFE4002C75F0 /* ChatView */,
+				9F303D502C4BAFD8002C75F0 /* Model */,
 				9FD51F932C25724F00A02AEE /* Assets.xcassets */,
 				9FD51F952C25724F00A02AEE /* LaunchScreen.storyboard */,
 				9FD51F982C25724F00A02AEE /* Info.plist */,
-				9F302AD62C33F422000A2A7B /* SocketIOManager.swift */,
-				9F302AD82C3401E2000A2A7B /* ChatViewModel.swift */,
-				9F302ADA2C3530D8000A2A7B /* LocationManager.swift */,
 				9F303D442C48E58C002C75F0 /* GoogleService-Info.plist */,
 			);
 			path = Dokodachi;
@@ -448,10 +483,11 @@
 				9F302ADB2C3530D8000A2A7B /* LocationManager.swift in Sources */,
 				9FD51F8B2C25724E00A02AEE /* AppDelegate.swift in Sources */,
 				9F302AD92C3401E2000A2A7B /* ChatViewModel.swift in Sources */,
-				9F1A84092C3BC85C00584F50 /* Message.swift in Sources */,
+				9F1A84092C3BC85C00584F50 /* MessageModel.swift in Sources */,
 				9F1A84072C3BBE4900584F50 /* ChatMessageCell.swift in Sources */,
 				9F303D4C2C48EB54002C75F0 /* LoginViewController.swift in Sources */,
 				9FD51F8D2C25724E00A02AEE /* SceneDelegate.swift in Sources */,
+				9F303D542C4BB40E002C75F0 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
