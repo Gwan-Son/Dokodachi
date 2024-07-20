@@ -34,6 +34,7 @@ class LoginViewController: UIViewController {
         textField.borderStyle = .roundedRect
         textField.placeholder = "password"
         textField.isSecureTextEntry = true
+        textField.textContentType = .oneTimeCode
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -67,6 +68,7 @@ class LoginViewController: UIViewController {
     private func setupUI() {
         view.backgroundColor = .white
         
+        loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
         registerButton.addTarget(self, action: #selector(registerButtonTapped), for: .touchUpInside)
         view.addSubview(emailTextField)
         view.addSubview(passwordTextField)
@@ -140,9 +142,14 @@ class LoginViewController: UIViewController {
                 print("login failed")
                 if let error = error {
                     print("error: \(error)")
+                    let alert = UIAlertController(title: "로그인 실패", message: "이메일과 비밀번호를 확인해주세요", preferredStyle: .alert)
+                    alert.addAction(.init(title: "확인", style: .default))
+                    self.present(alert, animated: true)
                 }
             } else if result != nil {
                 print("login success")
+                let chatVC = ChatViewController(username: self.emailTextField.text!)
+                self.navigationController?.pushViewController(chatVC, animated: true)
             }
         }
     }
