@@ -148,8 +148,11 @@ class LoginViewController: UIViewController {
                 }
             } else if result != nil {
                 print("login success")
-                let chatVC = ChatViewController(username: self.emailTextField.text!)
-                self.navigationController?.pushViewController(chatVC, animated: true)
+//                let chatVC = ChatViewController(username: self.emailTextField.text!)
+//                self.navigationController?.pushViewController(chatVC, animated: true)
+                let tabVC = TabViewController()
+                tabVC.modalPresentationStyle = .fullScreen
+                self.present(tabVC, animated: true)
             }
         }
     }
