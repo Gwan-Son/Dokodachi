@@ -1,4 +1,7 @@
 PODS:
+  - NMapsGeometry (1.0.2)
+  - NMapsMap (3.18.1):
+    - NMapsGeometry
   - RxCocoa (6.7.1):
     - RxRelay (= 6.7.1)
     - RxSwift (= 6.7.1)
@@ -10,12 +13,15 @@ PODS:
   - Starscream (4.0.8)
 
 DEPENDENCIES:
+  - NMapsMap
   - RxCocoa (= 6.7.1)
   - RxSwift (= 6.7.1)
   - Socket.IO-Client-Swift (~> 16.1.0)
 
 SPEC REPOS:
   trunk:
+    - NMapsGeometry
+    - NMapsMap
     - RxCocoa
     - RxRelay
     - RxSwift
@@ -23,12 +29,14 @@ SPEC REPOS:
     - Starscream
 
 SPEC CHECKSUMS:
+  NMapsGeometry: 4e02554fa9880ef02ed96b075dc84355d6352479
+  NMapsMap: e879088eeee2d1e3b97f0a609076e1824dce2cad
   RxCocoa: f5609cb4637587a7faa99c5d5787e3ad582b75a4
   RxRelay: 4151ba01152436b08271e08410135e099880eae5
   RxSwift: b9a93a26031785159e11abd40d1a55bcb8057e52
   Socket.IO-Client-Swift: ee4b8f80a3db18dd7f32b266ddf273310609443c
   Starscream: 19b5533ddb925208db698f0ac508a100b884a1b9
 
-PODFILE CHECKSUM: 90a377d797221cc6746635c0476caad2deb64fb4
+PODFILE CHECKSUM: e2d233d9cf63fafbec1211bb64dc2d863a6949aa
 
 COCOAPODS: 1.15.2

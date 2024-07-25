@@ -19,16 +19,17 @@ class SettingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .brown
+        self.navigationController?.navigationBar.isHidden = false
         self.title = "설정"
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(tableView)
         setupUI()
     }
     
     private func setupUI() {
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "settingCell")
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(tableView)
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
@@ -52,7 +53,24 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: "SettingCell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "settingCell", for: indexPath)
+        let item = settings[indexPath.section][indexPath.row]
+        cell.textLabel?.text = item
+        
+        if indexPath.section == 0 && indexPath.row < 2 { // Switches in the first section
+            let switchView = UISwitch(frame: .zero)
+            switchView.tag = indexPath.row
+            if indexPath.row == 0 { // Enable Notifications switch
+                switchView.setOn(UserDefaults.standard.bool(forKey: "enable_notifications"), animated: true)
+                switchView.addTarget(self, action: #selector(switchChanged(_:)), for: .valueChanged)
+            } else if indexPath.row == 1 { // Dark Mode switch
+                switchView.setOn(UserDefaults.standard.bool(forKey: "dark_mode"), animated: true)
+                switchView.addTarget(self, action: #selector(switchChanged(_:)), for: .valueChanged)
+            }
+            cell.accessoryView = switchView
+        } else {
+            cell.accessoryType = .disclosureIndicator
+        }
         
         return cell
     }
@@ -77,5 +95,3 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
 }
-// 설정 뷰 구성해야 함 -> 섹션 나눠서 설정
-// 지도 뷰 구성해야 함 -> 지도 api 설정

@@ -6,11 +6,25 @@
 //
 
 import UIKit
+import NMapsMap
 
 class MapViewController: UIViewController {
     
+    let locationManager = LocationManager()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
+        locationManager.requestLocationPermission()
+        locationManager.startLocationUpdates()
+        let mapView = NMFMapView(frame: view.frame)
+        mapView.positionMode = .direction
+        
+        let locationOverlay = mapView.locationOverlay
+        locationOverlay.hidden = false
+        locationOverlay.circleRadius = 50
+        
+        view.addSubview(mapView)
     }
+    
 }
