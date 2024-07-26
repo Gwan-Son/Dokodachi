@@ -68,29 +68,4 @@ class SocketIOManager {
     //    func sendLocation(latitude: Double, longitude: Double) {
     //        socket.emit("sendLocation", ["latitude": latitude, "longitude": longitude])
     //    }
-    
-    //    private func setupSocketEvents() {
-    //        socket.on(clientEvent: .connect) { data, ack in
-    //            print("Socket connected")
-    //        }
-    //
-    //        socket.on("message") { data, ack in
-    //            if let message = data[0] as? String {
-    //                self.messageReceived.onNext(message)
-    //            }
-    //        }
-    //
-    ////        socket.on("newLocation") { (data, ack) in
-    ////            if let locationData = data[0] as? [String: Double],
-    ////               let latitude = locationData["latitude"],
-    ////               let longitude = locationData["longitude"] {
-    ////                let location = (latitude: latitude, longitude: longitude)
-    ////                NotificationCenter.default.post(name: .newLocation, object: location)
-    ////            }
-    ////        }
-    //
-    //        socket.on(clientEvent: .disconnect) { data, ack in
-    //            print("Socket disconnected")
-    //        }
-    //    }
 }

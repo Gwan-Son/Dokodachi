@@ -9,7 +9,8 @@ import CoreLocation
 import RxSwift
 
 class LocationManager: NSObject, CLLocationManagerDelegate {
-    private let locationManager = CLLocationManager()
+    static let shared = LocationManager()
+    var locationManager: CLLocationManager!
     private let locationSubject = PublishSubject<CLLocation>()
     
     var locationObservable: Observable<CLLocation> {
@@ -18,6 +19,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     
     override init() {
         super.init()
+        locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
@@ -32,16 +34,20 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         locationManager.startUpdatingLocation()
     }
     
+    func sendLoacation() {
+        //TODO: - Socket.IO send Location
+        // Send location to the server using Socket.IO
+//            SocketIOManager.shared.sendLocation(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+    }
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
             locationSubject.onNext(location)
-            print("Latitude: \(location.coordinate.latitude), Longitude: \(location.coordinate.longitude)")
-            // Send location to the server using Socket.IO
-//            SocketIOManager.shared.sendLocation(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {
         print("Location Error: \(error)")
     }
+    
 }
