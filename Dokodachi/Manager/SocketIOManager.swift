@@ -21,7 +21,6 @@ class SocketIOManager {
     private init() {
         self.manager = SocketManager(socketURL: URL(string: "http://localhost:3000")!, config: [.log(true), .compress])
         self.socket = manager.defaultSocket
-        //        setupSocketEvents()
         setupBindings()
     }
     
@@ -64,6 +63,7 @@ class SocketIOManager {
         let messageData: [String: Any] = ["username": username, "message": message, "time": timeString]
         socket.emit("chat message", messageData)
     }
+    
     
     //    func sendLocation(latitude: Double, longitude: Double) {
     //        socket.emit("sendLocation", ["latitude": latitude, "longitude": longitude])
