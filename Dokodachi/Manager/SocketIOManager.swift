@@ -65,6 +65,12 @@ class SocketIOManager {
     }
     
     
+    func sendLocation(username: String, latitude: String, longitude: String, time: Date) {
+        let dateFormatter = ISO8601DateFormatter()
+        let timeString = dateFormatter.string(from: time)
+        let locationData: [String: Any] = ["username": username, "message": "", "time": timeString, "latitude" : latitude, "longitude": longitude]
+        socket.emit("send location", locationData)
+    }
     //    func sendLocation(latitude: Double, longitude: Double) {
     //        socket.emit("sendLocation", ["latitude": latitude, "longitude": longitude])
     //    }

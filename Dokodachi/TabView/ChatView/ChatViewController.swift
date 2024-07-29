@@ -94,9 +94,6 @@ class ChatViewController: UIViewController {
         viewModel.messagesOutput
             .bind(to: tableView.rx.items(cellIdentifier: "ChatMessageCell", cellType: ChatMessageCell.self)) { index, message, cell in
                 cell.configure(with: message)
-//                cell.messageLabel.text = message.text
-//                cell.usernameLabel.text = message.username
-//                cell.isIncoming = message.isIncoming
             }
             .disposed(by: disposeBag)
         
