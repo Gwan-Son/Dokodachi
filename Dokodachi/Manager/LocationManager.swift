@@ -34,10 +34,13 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         locationManager.startUpdatingLocation()
     }
     
-    func sendLoacation() {
-        //TODO: - Socket.IO send Location
-        // Send location to the server using Socket.IO
-//            SocketIOManager.shared.sendLocation(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+    func sendLoacation(username: String) {
+        print("<<LocationManager의 sendLoaction 호출>>")
+        
+        let latitude = locationManager.location?.coordinate.latitude
+        let longitude = locationManager.location?.coordinate.longitude
+        let locationMessage = Message(text: "위치 공유", isIncoming: false, username: username, time: Date(), latitude: latitude, longitude: longitude)
+        SocketIOManager.shared.sendMessage(username: username, message: locationMessage)
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

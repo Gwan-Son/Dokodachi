@@ -34,6 +34,12 @@ class ChatMessageCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    let mapButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("위치 보기", for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
     
     var leadingConstraint: NSLayoutConstraint!
     var trailingConstraint: NSLayoutConstraint!
@@ -52,6 +58,7 @@ class ChatMessageCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         usernameLabel.removeFromSuperview()
+        mapButton.removeFromSuperview()
         messageTopConstraint.isActive = false
         usernameTopConstraint?.isActive = false
         leadingConstraint?.isActive = false
@@ -65,6 +72,7 @@ class ChatMessageCell: UITableViewCell {
         messageLabel.text = message.text
         bubbleBackgroundView.backgroundColor = message.isIncoming ? .white : .yellow
         messageLabel.textColor = .black
+        mapButton.addTarget(self, action: #selector(mapButtonTapped), for: .touchUpInside)
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
@@ -98,12 +106,26 @@ class ChatMessageCell: UITableViewCell {
         bubbleBackgroundView.trailingAnchor.constraint(equalTo: messageLabel.trailingAnchor, constant: 8).isActive = true
         timeLabel.bottomAnchor.constraint(equalTo: bubbleBackgroundView.bottomAnchor, constant: 0).isActive = true
         
+        if message.latitude == nil || message.longitude == nil {
+            print("mapButton 안생겼어!!")
+        } else {
+            print("mapButton 생겼어!!!")
+            contentView.addSubview(mapButton)
+            mapButton.topAnchor.constraint(equalTo: timeLabel.bottomAnchor, constant: 4).isActive = true
+            mapButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8).isActive = true
+            mapButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8).isActive = true
+            mapButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8).isActive = true
+            mapButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        }
         
+        // TODO: - 위치 공유와 일반 메시지 구분해야함
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    @objc func mapButtonTapped() {
+        print("mapButton Tapped")
+    }
 }
-
-

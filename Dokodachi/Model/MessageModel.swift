@@ -12,11 +12,15 @@ struct Message {
     let isIncoming: Bool
     let username: String
     let time: Date
+    let latitude: Double?
+    let longitude: Double?
     
-    init(text: String, isIncoming: Bool, username: String, time: Date) {
+    init(text: String, isIncoming: Bool, username: String, time: Date, latitude: Double? = nil, longitude: Double? = nil) {
         self.text = text
         self.isIncoming = isIncoming
         self.username = username
         self.time = time
+        self.latitude = latitude
+        self.longitude = longitude
     }
 }

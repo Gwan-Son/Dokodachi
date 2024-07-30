@@ -23,7 +23,6 @@
 		9F303D592C4E3BC5002C75F0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F303D582C4E3BC5002C75F0 /* MapViewController.swift */; };
 		9F303D5B2C4E3C19002C75F0 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F303D5A2C4E3C19002C75F0 /* SettingViewController.swift */; };
 		9F303D5D2C502318002C75F0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F303D5C2C502318002C75F0 /* DetailViewController.swift */; };
-		9F99328D2C551B5E00E43735 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F99328C2C551B5D00E43735 /* LocationModel.swift */; };
 		9FD51F8B2C25724E00A02AEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD51F8A2C25724E00A02AEE /* AppDelegate.swift */; };
 		9FD51F8D2C25724E00A02AEE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD51F8C2C25724E00A02AEE /* SceneDelegate.swift */; };
 		9FD51F8F2C25724E00A02AEE /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD51F8E2C25724E00A02AEE /* ChatViewController.swift */; };
@@ -73,7 +72,6 @@
 		9F303D582C4E3BC5002C75F0 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		9F303D5A2C4E3C19002C75F0 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		9F303D5C2C502318002C75F0 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		9F99328C2C551B5D00E43735 /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
 		9FB2E77BF5B719EA3D3FCFC4 /* Pods_Dokodachi_DokodachiUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dokodachi_DokodachiUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FD51F872C25724E00A02AEE /* Dokodachi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dokodachi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FD51F8A2C25724E00A02AEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -159,7 +157,6 @@
 			isa = PBXGroup;
 			children = (
 				9F1A84082C3BC85C00584F50 /* MessageModel.swift */,
-				9F99328C2C551B5D00E43735 /* LocationModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -514,7 +511,6 @@
 				9FD51F8D2C25724E00A02AEE /* SceneDelegate.swift in Sources */,
 				9F303D572C4E3A21002C75F0 /* HomeViewController.swift in Sources */,
 				9F303D542C4BB40E002C75F0 /* TabViewController.swift in Sources */,
-				9F99328D2C551B5E00E43735 /* LocationModel.swift in Sources */,
 				9F303D592C4E3BC5002C75F0 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

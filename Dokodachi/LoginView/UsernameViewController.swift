@@ -3,7 +3,7 @@
 //  Dokodachi
 //
 //  Created by 심관혁 on 7/10/24.
-//
+//  현재 사용 안함 XXXXXXXXXXXXXXXX
 
 import UIKit
 

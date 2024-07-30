@@ -50,9 +50,8 @@ extension MapViewController: NMFMapViewTouchDelegate {
         
         let alert = UIAlertController(title: "위치 공유", message: "현재 위치를 공유하시겠습니까?", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "확인", style: .default) { [weak self] action in
-            // TODO: - 채팅으로 위치를 보낼 수 있는 기능 추가
-            SocketIOManager.shared.sendLocation(username: self!.username, latitude: String((self?.locationManager.locationManager.location?.coordinate.latitude)!), longitude: String((self?.locationManager.locationManager.location?.coordinate.longitude)!), time: Date())
-            print("현재 위치: \(String(describing: self!.locationManager.locationManager.location?.coordinate.latitude)), \(String(describing: self!.locationManager.locationManager.location?.coordinate.longitude))")
+            // Alert에서 확인을 누르면 위치 공유
+            self?.locationManager.sendLoacation(username: self!.username)
             // 채팅 탭뷰로 이동하는 코드
             if let tabBarController = self?.tabBarController {
                 tabBarController.selectedIndex = 1

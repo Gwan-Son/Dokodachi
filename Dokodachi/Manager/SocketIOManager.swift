@@ -62,21 +62,24 @@ class SocketIOManager {
         socket.disconnect()
     }
     
-    func sendMessage(username: String, message: String, time: Date) {
-        let dateFormatter = ISO8601DateFormatter()
-        let timeString = dateFormatter.string(from: time)
-        let messageData: [String: Any] = ["username": username, "message": message, "time": timeString]
-        socket.emit("chat message", messageData)
+    // chat message 와 send location 통합
+    /*
+     chat message는 sendButton으로 동작하기 때문에 node.js에서 broadcast.emit을 사용하여 중복 메시지를 제거함.
+     send location은 mapView에서 동작하기 때문에 node.js에서 io.emit을 사용하여 나에게도 메시지가 보일 수 있게 수정함.
+     */
+    func sendMessage(username: String, message: Message) {
+        var data: [String: Any] = [
+            "username": username,
+            "message": message.text,
+            "time": ISO8601DateFormatter().string(from: message.time)
+        ]
+        
+        if let latitude = message.latitude, let longitude = message.longitude {
+            data["latitude"] = latitude
+            data["longitude"] = longitude
+            socket.emit("send location", data)
+        } else {
+            socket.emit("chat message", data)
+        }
     }
-    
-    
-    func sendLocation(username: String, latitude: String, longitude: String, time: Date) {
-        let dateFormatter = ISO8601DateFormatter()
-        let timeString = dateFormatter.string(from: time)
-        let locationData: [String: Any] = ["username": username, "message": "위치입니다.", "time": timeString, "latitude" : latitude, "longitude": longitude]
-        socket.emit("send location", locationData)
-    }
-    //    func sendLocation(latitude: Double, longitude: Double) {
-    //        socket.emit("sendLocation", ["latitude": latitude, "longitude": longitude])
-    //    }
 }

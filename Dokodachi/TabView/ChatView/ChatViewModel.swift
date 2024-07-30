@@ -13,10 +13,7 @@ class ChatViewModel {
     private let disposeBag = DisposeBag()
     private let username: String
     
-    // Inputs
     let messageInput = PublishRelay<String>()
-    
-    // Outputs
     let messagesOutput = BehaviorRelay<[Message]>(value: [])
     
     init(username: String) {
@@ -28,7 +25,6 @@ class ChatViewModel {
             })
             .disposed(by: disposeBag)
         
-        // Receive messages from the socket
         SocketIOManager.shared.messageObservable
             .subscribe(onNext: { [weak self] messageData in
                 self?.receiveMessage(messageData)
@@ -37,25 +33,23 @@ class ChatViewModel {
     }
     
     private func sendMessage(_ message: String) {
-        let currentTime = Date()
-        let chatMessage = Message(text: message, isIncoming: false, username: username, time: currentTime)
+        let chatMessage = Message(text: message, isIncoming: false, username: username, time: Date())
         messagesOutput.accept(messagesOutput.value + [chatMessage])
         
-        // Send the message to the server
-        SocketIOManager.shared.sendMessage(username: username, message: message, time: currentTime)
+        SocketIOManager.shared.sendMessage(username: username, message: chatMessage)
     }
     
     private func receiveMessage(_ messageData: [String: Any]) {
-        print("receiveMessage 호출!!")
         guard let username = messageData["username"] as? String,
               let message = messageData["message"] as? String,
-              let timeString = messageData["time"] as? String else { return }
+              let timeString = messageData["time"] as? String,
+              let time = ISO8601DateFormatter().date(from: timeString) else { return }
         
-        let dateFormatter = ISO8601DateFormatter()
-        guard let time = dateFormatter.date(from: timeString) else { return }
+        let latitude = messageData["latitude"] as? Double
+        let longitude = messageData["longitude"] as? Double
         
         let isIncoming = username != self.username
-        let chatMessage = Message(text: message, isIncoming: isIncoming, username: username, time: time)
+        let chatMessage = Message(text: message, isIncoming: isIncoming, username: username, time: time, latitude: latitude, longitude: longitude)
         messagesOutput.accept(messagesOutput.value + [chatMessage])
     }
 }

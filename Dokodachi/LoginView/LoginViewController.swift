@@ -68,8 +68,6 @@ class LoginViewController: UIViewController {
     private func setupUI() {
         view.backgroundColor = .white
         
-        //rx이전 selector
-//        loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
         registerButton.addTarget(self, action: #selector(registerButtonTapped), for: .touchUpInside)
         view.addSubview(emailTextField)
         view.addSubview(passwordTextField)
@@ -157,31 +155,6 @@ class LoginViewController: UIViewController {
         let pred = NSPredicate(format: "SELF MATCHES %@", pattern)
         return pred.evaluate(with: password)
     }
-    
-    //rx이전 selector
-//    @objc private func loginButtonTapped() {
-//        guard let email = emailTextField.text else { return }
-//        guard let pw = passwordTextField.text else { return }
-//        
-//        Auth.auth().signIn(withEmail: email, password: pw) { result, error in
-//            if result == nil {
-//                print("login failed")
-//                if let error = error {
-//                    print("error: \(error)")
-//                    let alert = UIAlertController(title: "로그인 실패", message: "이메일과 비밀번호를 확인해주세요", preferredStyle: .alert)
-//                    alert.addAction(.init(title: "확인", style: .default))
-//                    self.present(alert, animated: true)
-//                }
-//            } else if result != nil {
-//                print("login success")
-////                let chatVC = ChatViewController(username: self.emailTextField.text!)
-////                self.navigationController?.pushViewController(chatVC, animated: true)
-//                let tabVC = TabViewController(username: self.emailTextField.text!)
-//                tabVC.modalPresentationStyle = .fullScreen
-//                self.present(tabVC, animated: true)
-//            }
-//        }
-//    }
     
     @objc private func registerButtonTapped() {
         let registerVC = RegisterViewController()

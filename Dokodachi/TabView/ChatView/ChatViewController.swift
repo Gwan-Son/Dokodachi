@@ -18,7 +18,6 @@ class ChatViewController: UIViewController {
     
     private let viewModel: ChatViewModel
     private let disposeBag = DisposeBag()
-//    private let locationManager = LocationManager()
     
     init(username: String) {
         self.viewModel = ChatViewModel(username: username)
