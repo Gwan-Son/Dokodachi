@@ -46,6 +46,7 @@ class ChatViewModel {
     }
     
     private func receiveMessage(_ messageData: [String: Any]) {
+        print("receiveMessage 호출!!")
         guard let username = messageData["username"] as? String,
               let message = messageData["message"] as? String,
               let timeString = messageData["time"] as? String else { return }

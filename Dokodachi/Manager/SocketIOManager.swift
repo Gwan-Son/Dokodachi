@@ -34,6 +34,11 @@ class SocketIOManager {
             self?.messageObservable.onNext(messageData)
         }
         
+        socket.on("send location") { [weak self] (dataArray, ack) in
+            guard let locationData = dataArray.first as? [String: Any] else { return }
+            self?.messageObservable.onNext(locationData)
+        }
+        
         socket.on(clientEvent: .disconnect) {data, ack in
             print("Socket disconnected")
         }
@@ -68,7 +73,7 @@ class SocketIOManager {
     func sendLocation(username: String, latitude: String, longitude: String, time: Date) {
         let dateFormatter = ISO8601DateFormatter()
         let timeString = dateFormatter.string(from: time)
-        let locationData: [String: Any] = ["username": username, "message": "", "time": timeString, "latitude" : latitude, "longitude": longitude]
+        let locationData: [String: Any] = ["username": username, "message": "위치입니다.", "time": timeString, "latitude" : latitude, "longitude": longitude]
         socket.emit("send location", locationData)
     }
     //    func sendLocation(latitude: Double, longitude: Double) {
