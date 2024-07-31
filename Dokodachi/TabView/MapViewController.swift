@@ -11,6 +11,7 @@ import NMapsMap
 class MapViewController: UIViewController {
     
     let mapView2 = NMFNaverMapView()
+    var cameraPosition: NMFCameraPosition?
     
     var username: String
     
@@ -29,6 +30,7 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
         locationManager.requestLocationPermission()
         locationManager.startLocationUpdates()
+        NotificationCenter.default.addObserver(self, selector: #selector(showLocation(_:)), name: NSNotification.Name("ShowLocation"), object: nil)
         
 //        let mapView = NMFNaverMapView(frame: view.frame)
 //        mapView.mapView.positionMode = .direction
@@ -43,12 +45,12 @@ class MapViewController: UIViewController {
         
         // 지도를 현재 위치로 이동하는 코드
 //        let cameraPosition = mapView.mapView.cameraPosition
-        let cameraPosition = mapView2.mapView.cameraPosition
-        cameraPosition.target.lat = (locationManager.locationManager.location?.coordinate.latitude)!
-        cameraPosition.target.lng = (locationManager.locationManager.location?.coordinate.longitude)!
+        cameraPosition = mapView2.mapView.cameraPosition
+        cameraPosition!.target.lat = (locationManager.locationManager.location?.coordinate.latitude)!
+        cameraPosition!.target.lng = (locationManager.locationManager.location?.coordinate.longitude)!
 //        mapView.mapView.moveCamera(NMFCameraUpdate(position: cameraPosition))
         
-        mapView2.mapView.moveCamera(NMFCameraUpdate(position: cameraPosition))
+        mapView2.mapView.moveCamera(NMFCameraUpdate(position: cameraPosition!))
         
 //        view.addSubview(mapView)
         mapView2.translatesAutoresizingMaskIntoConstraints = false
@@ -63,7 +65,16 @@ class MapViewController: UIViewController {
     }
     
     func viewLocation(latitude: Double, longitude: Double) {
-        
+        cameraPosition?.target.lat = latitude
+        cameraPosition?.target.lng = longitude
+        mapView2.mapView.moveCamera(NMFCameraUpdate(position: cameraPosition!))
+    }
+    
+    @objc private func showLocation(_ notification: Notification) {
+        guard let userInfo = notification.userInfo,
+              let latitude = userInfo["latitude"] as? Double,
+              let longitude = userInfo["longitude"] as? Double else { return }
+        viewLocation(latitude: latitude, longitude: longitude)
     }
     
 }
