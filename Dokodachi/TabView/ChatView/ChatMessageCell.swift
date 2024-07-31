@@ -37,6 +37,7 @@ class ChatMessageCell: UITableViewCell {
     let mapButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("위치 보기", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -51,13 +52,13 @@ class ChatMessageCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(bubbleBackgroundView)
-        contentView.addSubview(messageLabel)
         contentView.addSubview(timeLabel)
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
         usernameLabel.removeFromSuperview()
+        messageLabel.removeFromSuperview()
         mapButton.removeFromSuperview()
         messageTopConstraint.isActive = false
         usernameTopConstraint?.isActive = false
@@ -68,15 +69,18 @@ class ChatMessageCell: UITableViewCell {
     }
     
     func configure(with message: Message) {
-        backgroundColor = .gray
-        messageLabel.text = message.text
-        bubbleBackgroundView.backgroundColor = message.isIncoming ? .white : .yellow
-        messageLabel.textColor = .black
-        mapButton.addTarget(self, action: #selector(mapButtonTapped), for: .touchUpInside)
+        let isLocation = (message.latitude != nil && message.longitude != nil)
         
+        backgroundColor = .gray
+        bubbleBackgroundView.backgroundColor = message.isIncoming ? .white : .yellow
+
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
         timeLabel.text = dateFormatter.string(from: message.time)
+        
+        messageLabel.text = message.text
+        messageLabel.textColor = .black
+        mapButton.addTarget(self, action: #selector(mapButtonTapped), for: .touchUpInside)
         
         if message.isIncoming {
             usernameLabel.text = message.username
@@ -85,40 +89,67 @@ class ChatMessageCell: UITableViewCell {
             usernameTopConstraint.isActive = true
             usernameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 32).isActive = true
             usernameLabel.bottomAnchor.constraint(equalTo: bubbleBackgroundView.topAnchor, constant: 0).isActive = true
-            messageTopConstraint = messageLabel.topAnchor.constraint(equalTo: topAnchor, constant: 32)
-            leadingConstraint =  messageLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 32)
-            leadingConstraint.isActive = true
+            
+            if isLocation {
+                setupLocation(true)
+            } else {
+                setupMessage(true)
+            }
+            
             timeLeading = timeLabel.leadingAnchor.constraint(equalTo: bubbleBackgroundView.trailingAnchor, constant: 10)
             timeLeading.isActive = true
         } else {
-            messageTopConstraint = messageLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16)
-            trailingConstraint =  messageLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -32)
-            trailingConstraint.isActive = true
+            if isLocation {
+                setupLocation(false)
+            } else {
+                setupMessage(false)
+            }
             timeTrailing = timeLabel.trailingAnchor.constraint(equalTo: bubbleBackgroundView.leadingAnchor, constant: -10)
             timeTrailing.isActive = true
         }
         messageTopConstraint.isActive = true
+        timeLabel.bottomAnchor.constraint(equalTo: bubbleBackgroundView.bottomAnchor, constant: 0).isActive = true
+        
+    }
+    
+    func setupMessage(_ isIncoming: Bool) {
+        contentView.addSubview(messageLabel)
+        if isIncoming {
+            messageTopConstraint = messageLabel.topAnchor.constraint(equalTo: topAnchor, constant: 32)
+            leadingConstraint =  messageLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 32)
+            leadingConstraint.isActive = true
+        } else {
+            messageTopConstraint = messageLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16)
+            trailingConstraint =  messageLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -32)
+            trailingConstraint.isActive = true
+        }
         messageLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16).isActive = true
         messageLabel.widthAnchor.constraint(lessThanOrEqualToConstant: 250).isActive = true
         bubbleBackgroundView.topAnchor.constraint(equalTo: messageLabel.topAnchor, constant: -8).isActive = true
         bubbleBackgroundView.leadingAnchor.constraint(equalTo: messageLabel.leadingAnchor, constant: -8).isActive = true
         bubbleBackgroundView.bottomAnchor.constraint(equalTo: messageLabel.bottomAnchor, constant: 8).isActive = true
         bubbleBackgroundView.trailingAnchor.constraint(equalTo: messageLabel.trailingAnchor, constant: 8).isActive = true
-        timeLabel.bottomAnchor.constraint(equalTo: bubbleBackgroundView.bottomAnchor, constant: 0).isActive = true
-        
-        if message.latitude == nil || message.longitude == nil {
-            print("mapButton 안생겼어!!")
+    }
+    
+    func setupLocation(_ isIncoming: Bool) {
+        contentView.addSubview(mapButton)
+        if isIncoming {
+            messageTopConstraint = mapButton.topAnchor.constraint(equalTo: topAnchor, constant: 32)
+            leadingConstraint = mapButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 32)
+            leadingConstraint.isActive = true
+            mapButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0).isActive = true
+            bubbleBackgroundView.topAnchor.constraint(equalTo: mapButton.topAnchor, constant: -4).isActive = true
+            bubbleBackgroundView.bottomAnchor.constraint(equalTo: mapButton.bottomAnchor, constant: 4).isActive = true
         } else {
-            print("mapButton 생겼어!!!")
-            contentView.addSubview(mapButton)
-            mapButton.topAnchor.constraint(equalTo: timeLabel.bottomAnchor, constant: 4).isActive = true
-            mapButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8).isActive = true
-            mapButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8).isActive = true
-            mapButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8).isActive = true
-            mapButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
+            messageTopConstraint = mapButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 2)
+            trailingConstraint = mapButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -32)
+            trailingConstraint.isActive = true
+            mapButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -2).isActive = true
+            bubbleBackgroundView.topAnchor.constraint(equalTo: mapButton.topAnchor, constant: -1).isActive = true
+            bubbleBackgroundView.bottomAnchor.constraint(equalTo: mapButton.bottomAnchor, constant: 1).isActive = true
         }
-        
-        // TODO: - 위치 공유와 일반 메시지 구분해야함
+        bubbleBackgroundView.leadingAnchor.constraint(equalTo: mapButton.leadingAnchor, constant: -8).isActive = true
+        bubbleBackgroundView.trailingAnchor.constraint(equalTo: mapButton.trailingAnchor, constant: 8).isActive = true
     }
     
     required init?(coder: NSCoder) {
