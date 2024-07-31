@@ -8,6 +8,10 @@
 import UIKit
 
 class ChatMessageCell: UITableViewCell {
+    weak var delegate: ChatMessageCellDelegate?
+    private var latitude: Double?
+    private var longitude: Double?
+    
     let usernameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
@@ -70,6 +74,11 @@ class ChatMessageCell: UITableViewCell {
     
     func configure(with message: Message) {
         let isLocation = (message.latitude != nil && message.longitude != nil)
+        
+        if isLocation {
+            self.latitude = message.latitude
+            self.longitude = message.longitude
+        }
         
         backgroundColor = .gray
         bubbleBackgroundView.backgroundColor = message.isIncoming ? .white : .yellow
@@ -158,5 +167,7 @@ class ChatMessageCell: UITableViewCell {
     
     @objc func mapButtonTapped() {
         print("mapButton Tapped")
+        guard let latitude = latitude, let longitude = longitude else { return }
+        delegate?.mapButtonTapped(in: self, latitude: latitude, longitude: longitude)
     }
 }

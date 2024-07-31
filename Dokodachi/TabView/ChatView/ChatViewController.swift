@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 
 
-class ChatViewController: UIViewController {
+class ChatViewController: UIViewController, ChatMessageCellDelegate {
     
     private let tableView = UITableView()
     private let messageTextField = UITextField()
@@ -93,6 +93,7 @@ class ChatViewController: UIViewController {
         viewModel.messagesOutput
             .bind(to: tableView.rx.items(cellIdentifier: "ChatMessageCell", cellType: ChatMessageCell.self)) { index, message, cell in
                 cell.configure(with: message)
+                cell.delegate = self
             }
             .disposed(by: disposeBag)
         
@@ -110,6 +111,12 @@ class ChatViewController: UIViewController {
         if numberOfRows > 0 {
             let indexPath = IndexPath(row: numberOfRows - 1, section: 0)
             tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+        }
+    }
+    
+    func mapButtonTapped(in cell: ChatMessageCell, latitude: Double, longitude: Double) {
+        if let tabBarController = self.tabBarController {
+            tabBarController.selectedIndex = 2
         }
     }
     

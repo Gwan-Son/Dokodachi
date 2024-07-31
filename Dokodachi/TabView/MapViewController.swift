@@ -10,6 +10,8 @@ import NMapsMap
 
 class MapViewController: UIViewController {
     
+    let mapView2 = NMFNaverMapView()
+    
     var username: String
     
     let locationManager = LocationManager.shared
@@ -28,18 +30,40 @@ class MapViewController: UIViewController {
         locationManager.requestLocationPermission()
         locationManager.startLocationUpdates()
         
-        let mapView = NMFNaverMapView(frame: view.frame)
-        mapView.mapView.positionMode = .direction
-        mapView.showLocationButton = true
-        mapView.mapView.touchDelegate = self
+//        let mapView = NMFNaverMapView(frame: view.frame)
+//        mapView.mapView.positionMode = .direction
+//        mapView.showLocationButton = true
+//        mapView.mapView.touchDelegate = self
+        
+        //dddddd
+        mapView2.mapView.positionMode = .direction
+        mapView2.showLocationButton = true
+        mapView2.mapView.touchDelegate = self
+        //dddddd
         
         // 지도를 현재 위치로 이동하는 코드
-        let cameraPosition = mapView.mapView.cameraPosition
+//        let cameraPosition = mapView.mapView.cameraPosition
+        let cameraPosition = mapView2.mapView.cameraPosition
         cameraPosition.target.lat = (locationManager.locationManager.location?.coordinate.latitude)!
         cameraPosition.target.lng = (locationManager.locationManager.location?.coordinate.longitude)!
-        mapView.mapView.moveCamera(NMFCameraUpdate(position: cameraPosition))
+//        mapView.mapView.moveCamera(NMFCameraUpdate(position: cameraPosition))
         
-        view.addSubview(mapView)
+        mapView2.mapView.moveCamera(NMFCameraUpdate(position: cameraPosition))
+        
+//        view.addSubview(mapView)
+        mapView2.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(mapView2)
+        
+        NSLayoutConstraint.activate([
+            mapView2.topAnchor.constraint(equalTo: view.topAnchor),
+            mapView2.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            mapView2.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            mapView2.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        ])
+    }
+    
+    func viewLocation(latitude: Double, longitude: Double) {
+        
     }
     
 }
@@ -63,3 +87,4 @@ extension MapViewController: NMFMapViewTouchDelegate {
         present(alert, animated: true)
     }
 }
+
