@@ -15,6 +15,7 @@ class ChatViewController: UIViewController, ChatMessageCellDelegate {
     private let tableView = UITableView()
     private let messageTextField = UITextField()
     private let sendButton = UIButton(type: .system)
+    private let userView = UIView()
     
     private let viewModel: ChatViewModel
     private let disposeBag = DisposeBag()
@@ -39,44 +40,52 @@ class ChatViewController: UIViewController, ChatMessageCellDelegate {
     }
     
     private func setupUI() {
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(hexCode: "B4D6CD")
 
         
         tableView.register(ChatMessageCell.self, forCellReuseIdentifier: "ChatMessageCell")
         tableView.separatorStyle = .none
         
         tableView.allowsSelection = false
-        tableView.backgroundColor = .gray
+        tableView.backgroundColor = UIColor(hexCode: "B4D6CD")
         
         messageTextField.borderStyle = .roundedRect
         messageTextField.placeholder = "Enter message"
         
         sendButton.setTitle("Send", for: .normal)
         
+        userView.backgroundColor = .white
+        userView.addSubview(messageTextField)
+        userView.addSubview(sendButton)
+        
         view.addSubview(tableView)
-        view.addSubview(messageTextField)
-        view.addSubview(sendButton)
+        view.addSubview(userView)
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
         messageTextField.translatesAutoresizingMaskIntoConstraints = false
         sendButton.translatesAutoresizingMaskIntoConstraints = false
+        userView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: messageTextField.topAnchor, constant: -10),
+            tableView.bottomAnchor.constraint(equalTo: userView.topAnchor, constant: -10),
             
-            messageTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-            messageTextField.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
+            userView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            userView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            userView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            userView.heightAnchor.constraint(equalToConstant: 50),
+            
+            messageTextField.leadingAnchor.constraint(equalTo: userView.leadingAnchor, constant: 10),
             messageTextField.trailingAnchor.constraint(equalTo: sendButton.leadingAnchor, constant: -10),
+            messageTextField.centerYAnchor.constraint(equalTo: userView.centerYAnchor),
             messageTextField.heightAnchor.constraint(equalToConstant: 44),
             
-            sendButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            sendButton.trailingAnchor.constraint(equalTo: userView.trailingAnchor, constant: -10),
             sendButton.centerYAnchor.constraint(equalTo: messageTextField.centerYAnchor),
             sendButton.widthAnchor.constraint(equalToConstant: 60),
             sendButton.heightAnchor.constraint(equalToConstant: 44)
-            
         ])
     }
     
@@ -85,7 +94,7 @@ class ChatViewController: UIViewController, ChatMessageCellDelegate {
             .withLatestFrom(messageTextField.rx.text.orEmpty)
             .filter { !$0.isEmpty }
             .do(onNext: { [weak self] _ in
-                self?.messageTextField.text = ""
+                self?.messageTextField.text = nil
             })
             .bind(to: viewModel.messageInput)
             .disposed(by: disposeBag)

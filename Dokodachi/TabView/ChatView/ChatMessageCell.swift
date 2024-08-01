@@ -82,7 +82,7 @@ class ChatMessageCell: UITableViewCell {
             self.username = message.username
         }
         
-        backgroundColor = .gray
+        backgroundColor = .clear
         bubbleBackgroundView.backgroundColor = message.isIncoming ? .white : .yellow
 
         let dateFormatter = DateFormatter()

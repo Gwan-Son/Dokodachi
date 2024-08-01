@@ -24,6 +24,7 @@
 		9F303D5B2C4E3C19002C75F0 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F303D5A2C4E3C19002C75F0 /* SettingViewController.swift */; };
 		9F303D5D2C502318002C75F0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F303D5C2C502318002C75F0 /* DetailViewController.swift */; };
 		9F99328F2C5A2E6A00E43735 /* ChatMessageCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F99328E2C5A2E6A00E43735 /* ChatMessageCellDelegate.swift */; };
+		9F9932912C5B6AC800E43735 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9932902C5B6AC800E43735 /* Color+Extension.swift */; };
 		9FD51F8B2C25724E00A02AEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD51F8A2C25724E00A02AEE /* AppDelegate.swift */; };
 		9FD51F8D2C25724E00A02AEE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD51F8C2C25724E00A02AEE /* SceneDelegate.swift */; };
 		9FD51F8F2C25724E00A02AEE /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD51F8E2C25724E00A02AEE /* ChatViewController.swift */; };
@@ -74,6 +75,7 @@
 		9F303D5A2C4E3C19002C75F0 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		9F303D5C2C502318002C75F0 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		9F99328E2C5A2E6A00E43735 /* ChatMessageCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageCellDelegate.swift; sourceTree = "<group>"; };
+		9F9932902C5B6AC800E43735 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		9FB2E77BF5B719EA3D3FCFC4 /* Pods_Dokodachi_DokodachiUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dokodachi_DokodachiUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FD51F872C25724E00A02AEE /* Dokodachi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dokodachi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FD51F8A2C25724E00A02AEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -197,6 +199,14 @@
 			path = TabView;
 			sourceTree = "<group>";
 		};
+		9F9932922C5B6B2E00E43735 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				9F9932902C5B6AC800E43735 /* Color+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		9FD51F7E2C25724E00A02AEE = {
 			isa = PBXGroup;
 			children = (
@@ -228,6 +238,7 @@
 				9F303D522C4BAFF9002C75F0 /* LoginView */,
 				9F303D552C4E3A0D002C75F0 /* TabView */,
 				9F303D502C4BAFD8002C75F0 /* Model */,
+				9F9932922C5B6B2E00E43735 /* Extension */,
 				9FD51F932C25724F00A02AEE /* Assets.xcassets */,
 				9FD51F952C25724F00A02AEE /* LaunchScreen.storyboard */,
 				9FD51F982C25724F00A02AEE /* Info.plist */,
@@ -500,6 +511,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F1A840B2C3E5ADE00584F50 /* UsernameViewController.swift in Sources */,
+				9F9932912C5B6AC800E43735 /* Color+Extension.swift in Sources */,
 				9F303D4E2C4A3C4C002C75F0 /* RegisterViewController.swift in Sources */,
 				9F302AD72C33F422000A2A7B /* SocketIOManager.swift in Sources */,
 				9F99328F2C5A2E6A00E43735 /* ChatMessageCellDelegate.swift in Sources */,
