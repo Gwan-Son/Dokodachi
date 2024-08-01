@@ -8,5 +8,5 @@
 import Foundation
 
 protocol ChatMessageCellDelegate: AnyObject {
-    func mapButtonTapped(in cell: ChatMessageCell, latitude: Double, longitude: Double)
+    func mapButtonTapped(in cell: ChatMessageCell, latitude: Double, longitude: Double, username: String)
 }

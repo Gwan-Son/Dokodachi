@@ -114,8 +114,8 @@ class ChatViewController: UIViewController, ChatMessageCellDelegate {
         }
     }
     
-    func mapButtonTapped(in cell: ChatMessageCell, latitude: Double, longitude: Double) {
-        NotificationCenter.default.post(name: NSNotification.Name("ShowLocation"), object: nil, userInfo: ["latitude": latitude, "longitude": longitude])
+    func mapButtonTapped(in cell: ChatMessageCell, latitude: Double, longitude: Double, username: String) {
+        NotificationCenter.default.post(name: NSNotification.Name("ShowLocation"), object: nil, userInfo: ["latitude": latitude, "longitude": longitude, "username": username])
         if let tabBarController = self.tabBarController {
             tabBarController.selectedIndex = 2
         }

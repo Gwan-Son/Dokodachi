@@ -11,6 +11,7 @@ class ChatMessageCell: UITableViewCell {
     weak var delegate: ChatMessageCellDelegate?
     private var latitude: Double?
     private var longitude: Double?
+    private var username: String?
     
     let usernameLabel: UILabel = {
         let label = UILabel()
@@ -78,6 +79,7 @@ class ChatMessageCell: UITableViewCell {
         if isLocation {
             self.latitude = message.latitude
             self.longitude = message.longitude
+            self.username = message.username
         }
         
         backgroundColor = .gray
@@ -167,7 +169,7 @@ class ChatMessageCell: UITableViewCell {
     
     @objc func mapButtonTapped() {
         print("mapButton Tapped")
-        guard let latitude = latitude, let longitude = longitude else { return }
-        delegate?.mapButtonTapped(in: self, latitude: latitude, longitude: longitude)
+        guard let latitude = latitude, let longitude = longitude, let username = username else { return }
+        delegate?.mapButtonTapped(in: self, latitude: latitude, longitude: longitude, username: username)
     }
 }
