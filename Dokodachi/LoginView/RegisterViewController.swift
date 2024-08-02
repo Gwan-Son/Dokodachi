@@ -25,6 +25,7 @@ class RegisterViewController: UIViewController {
         let textField = UITextField()
         textField.placeholder = "example@example.com"
         textField.borderStyle = .roundedRect
+        textField.clearButtonMode = .whileEditing
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()

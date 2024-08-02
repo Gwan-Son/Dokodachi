@@ -20,6 +20,8 @@ class ChatViewController: UIViewController, ChatMessageCellDelegate {
     private let viewModel: ChatViewModel
     private let disposeBag = DisposeBag()
     
+    var userViewYValue = CGFloat(0)
+    
     init(username: String) {
         self.viewModel = ChatViewModel(username: username)
         super.init(nibName: nil, bundle: nil)
@@ -48,9 +50,11 @@ class ChatViewController: UIViewController, ChatMessageCellDelegate {
         
         tableView.allowsSelection = false
         tableView.backgroundColor = UIColor(hexCode: "B4D6CD")
+        tableView.keyboardDismissMode = .onDrag
         
         messageTextField.borderStyle = .roundedRect
         messageTextField.placeholder = "Enter message"
+        messageTextField.clearButtonMode = .whileEditing
         
         sendButton.setTitle("Send", for: .normal)
         
@@ -87,6 +91,11 @@ class ChatViewController: UIViewController, ChatMessageCellDelegate {
             sendButton.widthAnchor.constraint(equalToConstant: 60),
             sendButton.heightAnchor.constraint(equalToConstant: 44)
         ])
+        
+        print("userView Y값: \(userView.frame.origin.y)")
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
     }
     
     private func setupBindings() {
@@ -128,6 +137,27 @@ class ChatViewController: UIViewController, ChatMessageCellDelegate {
         if let tabBarController = self.tabBarController {
             tabBarController.selectedIndex = 2
         }
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardFrame = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            let keyboardHeight = keyboardFrame.height
+            print("키보드 높이: \(keyboardHeight)")
+            print("현재 뷰 위치: \(self.userView.frame.origin.y)")
+            print("현재 뷰 크기: \(self.userView.frame.height)")
+            let newYPosition = self.userView.frame.origin.y + keyboardHeight
+            
+            UIView.animate(withDuration: 0.3) {
+                self.userView.frame.origin.y = newYPosition
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.userView.frame.origin.y != 0 {
+            self.userView.frame.origin.y = 0
+        }
+        print("userView Y 값: \(self.userView.frame.origin.y)")
     }
     
     deinit {
