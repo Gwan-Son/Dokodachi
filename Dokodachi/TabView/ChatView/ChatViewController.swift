@@ -142,10 +142,13 @@ class ChatViewController: UIViewController, ChatMessageCellDelegate {
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardFrame = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             let keyboardHeight = keyboardFrame.height
+            if userViewYValue == 0 {
+                userViewYValue = self.userView.frame.origin.y
+            }
             print("키보드 높이: \(keyboardHeight)")
-            print("현재 뷰 위치: \(self.userView.frame.origin.y)")
             print("현재 뷰 크기: \(self.userView.frame.height)")
-            let newYPosition = self.userView.frame.origin.y + keyboardHeight
+            let newYPosition = self.userView.frame.origin.y - keyboardHeight + (self.tabBarController?.tabBar.frame.height)!
+            print("현재 뷰 위치: \(newYPosition)")
             
             UIView.animate(withDuration: 0.3) {
                 self.userView.frame.origin.y = newYPosition
@@ -154,8 +157,8 @@ class ChatViewController: UIViewController, ChatMessageCellDelegate {
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
-        if self.userView.frame.origin.y != 0 {
-            self.userView.frame.origin.y = 0
+        if self.userView.frame.origin.y != userViewYValue {
+            self.userView.frame.origin.y = userViewYValue
         }
         print("userView Y 값: \(self.userView.frame.origin.y)")
     }
