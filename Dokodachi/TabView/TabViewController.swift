@@ -13,7 +13,7 @@ class TabViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
+        view.backgroundColor = .white
         setTabbar()
         setAttribute()
     }
@@ -34,11 +34,11 @@ class TabViewController: UITabBarController {
         tabBar.standardAppearance = appearanceTabbar
         tabBar.tintColor = .black
         tabBar.backgroundColor = .white
+        
     }
     
     func setAttribute() {
         viewControllers = [
-            setupViewController(for: HomeViewController(), with: "홈", image: UIImage(systemName: "house")!, selectedImage: UIImage(systemName: "house.fill")!),
             setupViewController(for: ChatViewController(username: username), with: "채팅", image: UIImage(systemName: "message")!, selectedImage: UIImage(systemName: "message.fill")!),
             setupViewController(for: MapViewController(username: username), with: "지도", image: UIImage(systemName: "map")!, selectedImage: UIImage(systemName: "map.fill")!),
             setupViewController(for: SettingViewController(), with: "설정", image: UIImage(systemName: "gearshape")!, selectedImage: UIImage(systemName: "gearshape.fill")!)

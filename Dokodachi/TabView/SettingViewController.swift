@@ -10,10 +10,9 @@ import UIKit
 class SettingViewController: UIViewController {
     
     let tableView = UITableView()
-    let sections = ["일반", "계정", "도움"]
+    let sections = ["계정", "도움"]
     let settings = [
-        ["알림 설정", "다크 모드"],
-        [ "계정", "보안"], 
+        ["계정", "보안"],
         ["도움말"]
     ]
     
@@ -57,41 +56,25 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         let item = settings[indexPath.section][indexPath.row]
         cell.textLabel?.text = item
         
-        if indexPath.section == 0 && indexPath.row < 2 { // Switches in the first section
-            let switchView = UISwitch(frame: .zero)
-            switchView.tag = indexPath.row
-            if indexPath.row == 0 { // Enable Notifications switch
-                switchView.setOn(UserDefaults.standard.bool(forKey: "enable_notifications"), animated: true)
-                switchView.addTarget(self, action: #selector(switchChanged(_:)), for: .valueChanged)
-            } else if indexPath.row == 1 { // Dark Mode switch
-                switchView.setOn(UserDefaults.standard.bool(forKey: "dark_mode"), animated: true)
-                switchView.addTarget(self, action: #selector(switchChanged(_:)), for: .valueChanged)
-            }
-            cell.accessoryView = switchView
-        } else {
-            cell.accessoryType = .disclosureIndicator
-        }
+        cell.accessoryType = .disclosureIndicator
         
         return cell
     }
     
-    @objc func switchChanged(_ sender: UISwitch) {
-        if sender.tag == 0 {
-            UserDefaults.standard.set(sender.isOn, forKey: "enable_notifications")
-        } else if sender.tag == 1 {
-            UserDefaults.standard.set(sender.isOn, forKey: "dark_mode")
-            // Here you can also add code to change the appearance of the app if needed
-        }
-    }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
-        if indexPath.section > 0 || indexPath.row >= 2 {
-            let detailVC = DetailViewController()
-            detailVC.title = settings[indexPath.section][indexPath.row]
-            navigationController?.pushViewController(detailVC, animated: true)
+        var detailVC: UIViewController
+        if indexPath.section == 0 {
+            if indexPath.row == 0 {
+                detailVC = AccountViewController()
+            } else {
+                detailVC = PrivacyViewController()
+            }
+        } else {
+            detailVC = DetailViewController()
         }
+        detailVC.title = settings[indexPath.section][indexPath.row]
+        navigationController?.pushViewController(detailVC, animated: true)
     }
     
 }

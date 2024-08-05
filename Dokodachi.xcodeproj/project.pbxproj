@@ -19,12 +19,13 @@
 		9F303D4C2C48EB54002C75F0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F303D4B2C48EB54002C75F0 /* LoginViewController.swift */; };
 		9F303D4E2C4A3C4C002C75F0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F303D4D2C4A3C4C002C75F0 /* RegisterViewController.swift */; };
 		9F303D542C4BB40E002C75F0 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F303D532C4BB40E002C75F0 /* TabViewController.swift */; };
-		9F303D572C4E3A21002C75F0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F303D562C4E3A21002C75F0 /* HomeViewController.swift */; };
 		9F303D592C4E3BC5002C75F0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F303D582C4E3BC5002C75F0 /* MapViewController.swift */; };
 		9F303D5B2C4E3C19002C75F0 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F303D5A2C4E3C19002C75F0 /* SettingViewController.swift */; };
 		9F303D5D2C502318002C75F0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F303D5C2C502318002C75F0 /* DetailViewController.swift */; };
 		9F99328F2C5A2E6A00E43735 /* ChatMessageCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F99328E2C5A2E6A00E43735 /* ChatMessageCellDelegate.swift */; };
 		9F9932912C5B6AC800E43735 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9932902C5B6AC800E43735 /* Color+Extension.swift */; };
+		9F9932942C60C5C500E43735 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9932932C60C5C500E43735 /* AccountViewController.swift */; };
+		9F9932962C60C6E100E43735 /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9932952C60C6E100E43735 /* PrivacyViewController.swift */; };
 		9FD51F8B2C25724E00A02AEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD51F8A2C25724E00A02AEE /* AppDelegate.swift */; };
 		9FD51F8D2C25724E00A02AEE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD51F8C2C25724E00A02AEE /* SceneDelegate.swift */; };
 		9FD51F8F2C25724E00A02AEE /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD51F8E2C25724E00A02AEE /* ChatViewController.swift */; };
@@ -70,12 +71,13 @@
 		9F303D4B2C48EB54002C75F0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9F303D4D2C4A3C4C002C75F0 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		9F303D532C4BB40E002C75F0 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
-		9F303D562C4E3A21002C75F0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		9F303D582C4E3BC5002C75F0 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		9F303D5A2C4E3C19002C75F0 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		9F303D5C2C502318002C75F0 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		9F99328E2C5A2E6A00E43735 /* ChatMessageCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageCellDelegate.swift; sourceTree = "<group>"; };
 		9F9932902C5B6AC800E43735 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		9F9932932C60C5C500E43735 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		9F9932952C60C6E100E43735 /* PrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewController.swift; sourceTree = "<group>"; };
 		9FB2E77BF5B719EA3D3FCFC4 /* Pods_Dokodachi_DokodachiUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dokodachi_DokodachiUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FD51F872C25724E00A02AEE /* Dokodachi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dokodachi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FD51F8A2C25724E00A02AEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -192,8 +194,9 @@
 				9F303D512C4BAFE4002C75F0 /* ChatView */,
 				9F303D532C4BB40E002C75F0 /* TabViewController.swift */,
 				9F303D582C4E3BC5002C75F0 /* MapViewController.swift */,
-				9F303D562C4E3A21002C75F0 /* HomeViewController.swift */,
 				9F303D5A2C4E3C19002C75F0 /* SettingViewController.swift */,
+				9F9932952C60C6E100E43735 /* PrivacyViewController.swift */,
+				9F9932932C60C5C500E43735 /* AccountViewController.swift */,
 				9F303D5C2C502318002C75F0 /* DetailViewController.swift */,
 			);
 			path = TabView;
@@ -518,14 +521,15 @@
 				9FD51F8F2C25724E00A02AEE /* ChatViewController.swift in Sources */,
 				9F302ADB2C3530D8000A2A7B /* LocationManager.swift in Sources */,
 				9F303D5B2C4E3C19002C75F0 /* SettingViewController.swift in Sources */,
+				9F9932942C60C5C500E43735 /* AccountViewController.swift in Sources */,
 				9FD51F8B2C25724E00A02AEE /* AppDelegate.swift in Sources */,
 				9F303D5D2C502318002C75F0 /* DetailViewController.swift in Sources */,
 				9F302AD92C3401E2000A2A7B /* ChatViewModel.swift in Sources */,
+				9F9932962C60C6E100E43735 /* PrivacyViewController.swift in Sources */,
 				9F1A84092C3BC85C00584F50 /* MessageModel.swift in Sources */,
 				9F1A84072C3BBE4900584F50 /* ChatMessageCell.swift in Sources */,
 				9F303D4C2C48EB54002C75F0 /* LoginViewController.swift in Sources */,
 				9FD51F8D2C25724E00A02AEE /* SceneDelegate.swift in Sources */,
-				9F303D572C4E3A21002C75F0 /* HomeViewController.swift in Sources */,
 				9F303D542C4BB40E002C75F0 /* TabViewController.swift in Sources */,
 				9F303D592C4E3BC5002C75F0 /* MapViewController.swift in Sources */,
 			);
