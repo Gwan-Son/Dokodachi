@@ -21,7 +21,7 @@ class AccountViewController: UIViewController {
         logoutButton.setTitle("로그아웃", for: .normal)
         logoutButton.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         logoutButton.backgroundColor = .green
-        logoutButton.addTarget(self, action: #selector(<#T##@objc method#>), for: .touchUpInside)
+        logoutButton.addTarget(self, action: #selector(logoutButtonTapped), for: .touchUpInside)
     }
     
     @objc func logoutButtonTapped() {
