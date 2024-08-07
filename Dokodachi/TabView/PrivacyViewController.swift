@@ -10,6 +10,7 @@ import FirebaseAuth
 
 class PrivacyViewController: UIViewController {
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemPink

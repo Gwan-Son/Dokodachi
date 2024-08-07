@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SettingViewController: UIViewController {
     
@@ -66,7 +67,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         var detailVC: UIViewController
         if indexPath.section == 0 {
             if indexPath.row == 0 {
-                detailVC = AccountViewController()
+                detailVC = AccountViewController(auth: Auth.auth())
             } else {
                 detailVC = PrivacyViewController()
             }
