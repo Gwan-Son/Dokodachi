@@ -12,15 +12,11 @@ class AccountViewController: UIViewController {
     private let auth: Auth
     
     private let tableView = UITableView()
-    private let sections = ["정보",""]
+    private let sections = ["정보","계정"]
     private let infomations = [
         ["email","UID"],
-        [""]
+        ["로그아웃"]
     ]
-    
-    private let emailLabel = UILabel()
-    private let userIDLable = UILabel()
-    private let logoutButton = UIButton(type: .roundedRect)
     
     init(auth: Auth) {
         self.auth = auth
@@ -42,46 +38,20 @@ class AccountViewController: UIViewController {
     
     func setupUI() {
         view.backgroundColor = .white
-        let user = auth.currentUser
         
-        emailLabel.text = "로그인한 email: \(user?.email ?? "null")"
-        emailLabel.font = UIFont.systemFont(ofSize: 18)
-        emailLabel.textColor = .black
-        emailLabel.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(emailLabel)
-        
-        userIDLable.text = "UID: \(user?.uid ?? "null")"
-        userIDLable.font = UIFont.systemFont(ofSize: 16)
-        userIDLable.textColor = .black
-        userIDLable.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(userIDLable)
-        
-        logoutButton.setTitle("로그아웃", for: .normal)
-        logoutButton.titleLabel?.font = UIFont.systemFont(ofSize: 16)
-        logoutButton.setTitleColor(.white, for: .normal)
-        logoutButton.backgroundColor = .red
-        logoutButton.layer.cornerRadius = 5
-        
-        logoutButton.addTarget(self, action: #selector(logoutButtonTapped), for: .touchUpInside)
-        logoutButton.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(logoutButton)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "accountCell")
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(tableView)
         
         NSLayoutConstraint.activate([
-            emailLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            emailLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40),
-            
-            userIDLable.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            userIDLable.topAnchor.constraint(equalTo: emailLabel.bottomAnchor, constant: 30),
-            
-            logoutButton.topAnchor.constraint(equalTo: userIDLable.bottomAnchor, constant: 40),
-            logoutButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
-            logoutButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
-            logoutButton.heightAnchor.constraint(equalToConstant: 44)
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
     }
     
-    @objc func logoutButtonTapped() {
-        
+    func logoutButtonTapped() {
         do {
             try auth.signOut()
             self.dismiss(animated: true, completion: nil)
@@ -107,10 +77,32 @@ extension AccountViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "accountCell", for: indexPath)
         let item = infomations[indexPath.section][indexPath.row]
-        cell.textLabel?.text = item
+        var config = UIListContentConfiguration.cell()
         
-        cell.accessoryType = .disclosureIndicator
+        config.text = item
+        
+        if indexPath.section == 0 {
+            let user = auth.currentUser
+            cell.selectionStyle = .none
+            config.secondaryTextProperties.color = .gray
+            if indexPath.row == 0 {
+                config.secondaryText = user?.email ?? "null"
+            } else {
+                config.secondaryText = user?.uid ?? "null"
+            }
+        } else {
+            config.textProperties.alignment = .center
+            config.textProperties.color = .red
+        }
+        cell.contentConfiguration = config
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 1 && indexPath.row == 0 {
+            logoutButtonTapped()
+        }
+    }
+
 }

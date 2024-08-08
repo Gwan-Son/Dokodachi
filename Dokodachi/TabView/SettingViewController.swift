@@ -69,7 +69,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
             if indexPath.row == 0 {
                 detailVC = AccountViewController(auth: Auth.auth())
             } else {
-                detailVC = PrivacyViewController()
+                detailVC = PrivacyViewController(auth: Auth.auth())
             }
         } else {
             detailVC = DetailViewController()
