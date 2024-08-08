@@ -35,7 +35,7 @@ class PrivacyViewController: UIViewController {
     }
     
     func setupUI() {
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "privacyCell")
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "PrivacyCell")
         tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
         
@@ -62,12 +62,10 @@ extension PrivacyViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "privacyCell", for: indexPath)
+        //TODO: - CustomCell 설정
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PrivacyCell", for: indexPath) as! PrivacyCell
         let item = password[indexPath.section][indexPath.row]
-        var config = UIListContentConfiguration.cell()
-        
-        config.text = item
-        cell.contentConfiguration = config
+        cell.congifure(text: item, placeholder: "비밀번호를 입력해주세요.")
         
         return cell
     }
