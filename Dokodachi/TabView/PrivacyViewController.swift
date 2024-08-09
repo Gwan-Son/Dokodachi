@@ -50,6 +50,15 @@ class PrivacyViewController: UIViewController {
     
     func changePassword() {
         //TODO: - 비밀번호 변경 로직
+        for section in 0..<sections.count {
+            for row in 0..<password[section].count {
+                let indexPath = IndexPath(row: row, section: section)
+                if let cell = tableView.cellForRow(at: indexPath) as? PrivacyCell {
+                    let textFieldValue = cell.passwordTextField.text
+                    print("Section \(section), Row \(row): \(textFieldValue ?? "")")
+                }
+            }
+        }
     }
 }
 

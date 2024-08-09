@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PrivacyCell: UITableViewCell, UITextFieldDelegate {
+class PrivacyCell: UITableViewCell {
     let passwordLabel = UILabel()
     let passwordTextField = UITextField()
     let buttonLabel = UILabel()
@@ -21,7 +21,6 @@ class PrivacyCell: UITableViewCell, UITextFieldDelegate {
         contentView.addSubview(passwordLabel)
         contentView.addSubview(passwordTextField)
         
-        passwordTextField.delegate = self
         
         NSLayoutConstraint.activate([
             passwordLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
@@ -44,9 +43,5 @@ class PrivacyCell: UITableViewCell, UITextFieldDelegate {
             buttonLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             buttonLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
         ])
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        print("value: \(textField.text ?? "")")
     }
 }
