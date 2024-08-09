@@ -12,10 +12,11 @@ class PrivacyViewController: UIViewController {
     private let auth: Auth
     
     private let tableView = UITableView()
-    let sections = ["Old Password", "New Password"]
+    let sections = ["Old Password", "New Password","Confirm"]
     let password = [
         ["기존 비밀번호:"],
-        ["새 비밀번호:","새 비밀번호 확인:"]
+        ["새 비밀번호:","새 비밀번호 확인:"],
+        [""]
     ]
     
     override func viewDidLoad() {
@@ -35,7 +36,7 @@ class PrivacyViewController: UIViewController {
     }
     
     func setupUI() {
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "PrivacyCell")
+        tableView.register(PrivacyCell.self, forCellReuseIdentifier: "PrivacyCell")
         tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
         
@@ -45,6 +46,10 @@ class PrivacyViewController: UIViewController {
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
+    }
+    
+    func changePassword() {
+        //TODO: - 비밀번호 변경 로직
     }
 }
 
@@ -62,12 +67,21 @@ extension PrivacyViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //TODO: - CustomCell 설정
         let cell = tableView.dequeueReusableCell(withIdentifier: "PrivacyCell", for: indexPath) as! PrivacyCell
         let item = password[indexPath.section][indexPath.row]
-        cell.congifure(text: item, placeholder: "비밀번호를 입력해주세요.")
+        if indexPath.section < 2 {
+            cell.congifure(text: item, placeholder: "비밀번호를 입력해주세요.")
+            cell.selectionStyle = .none
+        } else {
+            cell.buttonConfigure()
+        }
         
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 2 && indexPath.row == 0 {
+            changePassword()
+        }
+    }
 }
