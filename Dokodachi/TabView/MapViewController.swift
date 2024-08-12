@@ -130,7 +130,7 @@ class MapViewController: UIViewController {
         let okAction = UIAlertAction(title: "확인", style: .default) { [weak self] _ in
             self?.locationManager.sendLoacation(username: self!.username)
             if let tabBarController = self?.tabBarController {
-                tabBarController.selectedIndex = 1
+                tabBarController.selectedIndex = 0
             }
         }
         alert.addAction(okAction)
