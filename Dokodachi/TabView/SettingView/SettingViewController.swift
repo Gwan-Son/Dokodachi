@@ -72,7 +72,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
                 detailVC = PrivacyViewController(auth: Auth.auth())
             }
         } else {
-            detailVC = DetailViewController()
+            detailVC = HelpViewController()
         }
         detailVC.title = settings[indexPath.section][indexPath.row]
         navigationController?.pushViewController(detailVC, animated: true)

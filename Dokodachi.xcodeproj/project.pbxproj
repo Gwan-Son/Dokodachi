@@ -21,7 +21,7 @@
 		9F303D542C4BB40E002C75F0 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F303D532C4BB40E002C75F0 /* TabViewController.swift */; };
 		9F303D592C4E3BC5002C75F0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F303D582C4E3BC5002C75F0 /* MapViewController.swift */; };
 		9F303D5B2C4E3C19002C75F0 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F303D5A2C4E3C19002C75F0 /* SettingViewController.swift */; };
-		9F303D5D2C502318002C75F0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F303D5C2C502318002C75F0 /* DetailViewController.swift */; };
+		9F303D5D2C502318002C75F0 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F303D5C2C502318002C75F0 /* HelpViewController.swift */; };
 		9F99328F2C5A2E6A00E43735 /* ChatMessageCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F99328E2C5A2E6A00E43735 /* ChatMessageCellDelegate.swift */; };
 		9F9932912C5B6AC800E43735 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9932902C5B6AC800E43735 /* Color+Extension.swift */; };
 		9F9932942C60C5C500E43735 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9932932C60C5C500E43735 /* AccountViewController.swift */; };
@@ -74,7 +74,7 @@
 		9F303D532C4BB40E002C75F0 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		9F303D582C4E3BC5002C75F0 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		9F303D5A2C4E3C19002C75F0 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
-		9F303D5C2C502318002C75F0 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		9F303D5C2C502318002C75F0 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		9F99328E2C5A2E6A00E43735 /* ChatMessageCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageCellDelegate.swift; sourceTree = "<group>"; };
 		9F9932902C5B6AC800E43735 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		9F9932932C60C5C500E43735 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
@@ -194,13 +194,9 @@
 			isa = PBXGroup;
 			children = (
 				9F303D512C4BAFE4002C75F0 /* ChatView */,
+				9F9932992C6B4E9200E43735 /* SettingView */,
 				9F303D532C4BB40E002C75F0 /* TabViewController.swift */,
 				9F303D582C4E3BC5002C75F0 /* MapViewController.swift */,
-				9F303D5A2C4E3C19002C75F0 /* SettingViewController.swift */,
-				9F9932952C60C6E100E43735 /* PrivacyViewController.swift */,
-				9F9932972C64C3A300E43735 /* PrivacyCell.swift */,
-				9F9932932C60C5C500E43735 /* AccountViewController.swift */,
-				9F303D5C2C502318002C75F0 /* DetailViewController.swift */,
 			);
 			path = TabView;
 			sourceTree = "<group>";
@@ -211,6 +207,18 @@
 				9F9932902C5B6AC800E43735 /* Color+Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		9F9932992C6B4E9200E43735 /* SettingView */ = {
+			isa = PBXGroup;
+			children = (
+				9F303D5A2C4E3C19002C75F0 /* SettingViewController.swift */,
+				9F9932952C60C6E100E43735 /* PrivacyViewController.swift */,
+				9F9932972C64C3A300E43735 /* PrivacyCell.swift */,
+				9F9932932C60C5C500E43735 /* AccountViewController.swift */,
+				9F303D5C2C502318002C75F0 /* HelpViewController.swift */,
+			);
+			path = SettingView;
 			sourceTree = "<group>";
 		};
 		9FD51F7E2C25724E00A02AEE = {
@@ -527,7 +535,7 @@
 				9F303D5B2C4E3C19002C75F0 /* SettingViewController.swift in Sources */,
 				9F9932942C60C5C500E43735 /* AccountViewController.swift in Sources */,
 				9FD51F8B2C25724E00A02AEE /* AppDelegate.swift in Sources */,
-				9F303D5D2C502318002C75F0 /* DetailViewController.swift in Sources */,
+				9F303D5D2C502318002C75F0 /* HelpViewController.swift in Sources */,
 				9F302AD92C3401E2000A2A7B /* ChatViewModel.swift in Sources */,
 				9F9932962C60C6E100E43735 /* PrivacyViewController.swift in Sources */,
 				9F1A84092C3BC85C00584F50 /* MessageModel.swift in Sources */,
