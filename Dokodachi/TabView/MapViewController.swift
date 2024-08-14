@@ -35,7 +35,6 @@ class MapViewController: UIViewController {
         
         mapView.mapView.positionMode = .direction
         mapView.showLocationButton = true
-        mapView.mapView.touchDelegate = self
         
         shareButton.setImage(UIImage(systemName: "paperplane.fill"), for: .normal)
         shareButton.tintColor = .green
@@ -137,27 +136,6 @@ class MapViewController: UIViewController {
         alert.addAction(.init(title: "취소", style: .destructive))
         present(alert, animated: true)
     }
-    
-}
-
-extension MapViewController: NMFMapViewTouchDelegate {
-//    func mapView(_ mapView: NMFMapView, didTapMap latlng: NMGLatLng, point: CGPoint) {
-//        print("Lat: \(latlng.lat), Lon: \(latlng.lng)")
-//        
-//        let alert = UIAlertController(title: "위치 공유", message: "현재 위치를 공유하시겠습니까?", preferredStyle: .alert)
-//        let okAction = UIAlertAction(title: "확인", style: .default) { [weak self] action in
-//            // Alert에서 확인을 누르면 위치 공유
-//            self?.locationManager.sendLoacation(username: self!.username)
-//            // 채팅 탭뷰로 이동하는 코드
-//            if let tabBarController = self?.tabBarController {
-//                tabBarController.selectedIndex = 1
-//            }
-//            
-//        }
-//        alert.addAction(okAction)
-//        alert.addAction(.init(title: "취소", style: .destructive))
-//        present(alert, animated: true)
-//    }
     
 }
 
