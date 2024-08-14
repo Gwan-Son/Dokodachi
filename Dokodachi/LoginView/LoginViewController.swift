@@ -159,6 +159,6 @@ class LoginViewController: UIViewController {
     
     @objc private func registerButtonTapped() {
         let registerVC = RegisterViewController()
-        self.navigationController?.pushViewController(registerVC, animated: true)
+        self.present(registerVC, animated: true)
     }
 }

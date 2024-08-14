@@ -136,7 +136,7 @@ class RegisterViewController: UIViewController {
                 print("result: \(result)")
                 let alert = UIAlertController(title: "회원가입 완료", message: "회원가입이 완료되었습니다.", preferredStyle: .alert)
                 let okButton = UIAlertAction(title: "확인", style: .default) { [weak self] _ in
-                    self?.navigationController?.popViewController(animated: true)
+                    self?.dismiss(animated: true)
                 }
                 alert.addAction(okButton)
                 self.present(alert, animated: true)
